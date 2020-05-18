@@ -1,0 +1,56 @@
+<div class="auth-wrapper d-flex no-block justify-content-center align-items-center" style="background:url(assets/images/Backgrounds/SignUp.jpg) no-repeat center center;">
+    <div class="auth-box m-3 m-md-0">
+        <div>
+            <div class="logo">
+                <span class="db"><img src="../../../assets/images/Logo_tagline-03.png" width="150px" height="150px" alt="logo" /></span>
+            </div>
+            <!-- Form -->
+            <div class="row">
+                <div class="col-12">
+                    <form class="form-horizontal m-t-20" action="index.html">
+                        <div class="form-group row ">
+                            <div class="col-12 ">
+                                <input class="form-control" [(ngModel)]="user.name" name="name" type="text" required=" " placeholder="Name">
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <div class="col-12 ">
+                                <input class="form-control" [(ngModel)]="user.email" name="email" type="email" required=" " placeholder="Email">
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <div class="col-12 ">
+                                <input class="form-control" [(ngModel)]="user.password" name="password" type="password" required=" " placeholder="Password">
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <div class="col-12 ">
+                                <input class="form-control" [(ngModel)]="user.phone" type="text" name="phone" required=" " placeholder="Phone No.">
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <div class="col-12 ">
+                                <input class="form-control" [(ngModel)]="user.bio" name="bio" type="text" required=" " placeholder="Bio">
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <div class="col-12 ">
+                                <input class="form-control" [(ngModel)]="user.age" name="age" type="text" required=" " placeholder="Age">
+                            </div>
+                        </div>
+                        <div class="form-group text-center ">
+                            <div class="col-xs-12 p-b-20 ">
+                                <a class="btn btn-block btn-lg btn-info" (click)="signup()"  style="color:white">SIGN UP</a>
+                            </div>
+                        </div>
+                        <div class="form-group m-b-0 m-t-10 ">
+                            <div class="col-sm-12 text-center ">
+                                Already have an account? <a  [routerLink]="['/login']" class="text-info m-l-5 "><b>Login</b></a>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
