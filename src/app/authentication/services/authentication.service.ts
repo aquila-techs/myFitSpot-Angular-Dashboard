@@ -10,15 +10,19 @@ export class AuthenticationService {
   constructor(private http: HttpClient) {}
 
   login(body): Observable<any> {
-    return this.http.post("/user/admin/login", body);
+    return this.http.post("/user/partner/login", body);
   }
 
   signup(body): Observable<any> {
-    return this.http.post("/user/register", body);
+    return this.http.post("/user/register/partner", body);
   }
 
   forgetPassword(body): Observable<any> {
     return this.http.post("/user/send/reset/password/email", body);
+  }
+
+  getAllPartners(): Observable<any> {
+    return this.http.get("/user/all/partners");
   }
 
 }
