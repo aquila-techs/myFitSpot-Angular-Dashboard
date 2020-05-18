@@ -27,7 +27,7 @@ export const ROUTES: RouteInfo[] = [
         ]
     },
     {
-        path: '',
+        path: '/workout',
         title: 'WorkOut',
         icon: 'mdi mdi-dumbbell',
         class: '', //has-arrow 
