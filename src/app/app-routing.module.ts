@@ -6,6 +6,7 @@ import { FullComponent } from './layouts/full/full.component';
 import { BlankComponent } from './layouts/blank/blank.component';
 import { LoginComponent } from "./authentication/login/login.component";
 import { SignupComponent } from "./authentication/signup/signup.component";
+import { ForgotPasswordComponent } from "./authentication/forgot-password/forgot-password.component";
 
 //Guards
 import { AuthRoutesAppearanceGuard } from "./guards/auth-routes-appearance.guard";
@@ -41,6 +42,10 @@ const routes: Routes = [
   {
     path: 'signup',
     component: SignupComponent
+  },
+  {
+    path: 'forgotpassword',
+    component: ForgotPasswordComponent
   },
   {
     path: '',

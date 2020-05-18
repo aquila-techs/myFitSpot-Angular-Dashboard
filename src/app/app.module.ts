@@ -28,7 +28,7 @@ import { FullComponent } from './layouts/full/full.component';
 import { BlankComponent } from './layouts/blank/blank.component';
 import { LoginComponent } from './authentication/login/login.component';
 import { SignupComponent } from './authentication/signup/signup.component';
-
+import { ForgotPasswordComponent } from './authentication/forgot-password/forgot-password.component';
 
 //Interceptor
 import { HttpRequestLoaderInterceptor } from './core/http-request-loader.interceptor';
@@ -50,7 +50,8 @@ const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
     BreadcrumbComponent,
     SidebarComponent,
     LoginComponent,
-    SignupComponent
+    SignupComponent,
+    ForgotPasswordComponent
   ],
   imports: [
     BrowserModule,

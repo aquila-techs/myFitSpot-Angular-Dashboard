@@ -9,7 +9,6 @@ import { LockComponent } from './lock/lock.component';
 
 
 import { AuthenticationRoutes } from './authentication.routing';
-
 @NgModule({
   imports: [
     CommonModule,

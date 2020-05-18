@@ -17,4 +17,8 @@ export class AuthenticationService {
     return this.http.post("/user/register", body);
   }
 
+  forgetPassword(body): Observable<any> {
+    return this.http.post("/user/send/reset/password/email", body);
+  }
+
 }
