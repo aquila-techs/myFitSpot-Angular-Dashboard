@@ -1,0 +1,32 @@
+
+.cursor{
+    cursor: pointer;
+}
+
+.text-info{
+    color:#fff !important;
+}
+
+a.text-info:hover, a.text-info:focus {
+    color: #fff !important;
+}
+
+.btn-success {
+    color: #fff;
+    background-color: #4dce49;
+    border-color: #4dce49;
+    width: 250px;
+    border-radius: 10px;
+}
+
+.btn-success:hover {
+    color: #fff;
+    background-color: #1d5e14;
+    border-color: #1d5e14;
+}
+
+.btn-success:not(:disabled):not(.disabled):active, .btn-success:not(:disabled):not(.disabled).active, .show > .btn-success.dropdown-toggle {
+    color: #fff;
+    background-color: #1d5e14;
+    border-color: #1d5e14;
+}

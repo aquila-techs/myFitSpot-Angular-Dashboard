@@ -29,7 +29,9 @@ import { BlankComponent } from './layouts/blank/blank.component';
 import { LoginComponent } from './authentication/login/login.component';
 import { SignupComponent } from './authentication/signup/signup.component';
 import { ForgotPasswordComponent } from './authentication/forgot-password/forgot-password.component';
-
+import { RedirectVerificationComponent } from './shared/redirect-verification/redirect-verification.component';
+import { ResetPasswordRedirectComponent } from "./shared/reset-password-redirect/reset-password-redirect.component";
+import { ActivateEmailComponent } from "./shared/activate-email/activate-email.component";
 //Interceptor
 import { HttpRequestLoaderInterceptor } from './core/http-request-loader.interceptor';
 
@@ -51,7 +53,10 @@ const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
     SidebarComponent,
     LoginComponent,
     SignupComponent,
-    ForgotPasswordComponent
+    ForgotPasswordComponent,
+    RedirectVerificationComponent,
+    ResetPasswordRedirectComponent,
+    ActivateEmailComponent
   ],
   imports: [
     BrowserModule,

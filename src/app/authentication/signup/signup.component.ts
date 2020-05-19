@@ -1,6 +1,7 @@
 import { Component,OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthenticationService  } from "../services/authentication.service";
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-signup',
@@ -18,7 +19,7 @@ export class SignupComponent implements OnInit{
   user={name:"",email:"",password:"",referBy:""}
 
 
-  constructor(private authSer: AuthenticationService,private router:Router) {}
+  constructor(private authSer: AuthenticationService,private router:Router,private toastr:ToastrService) {}
 
   ngOnInit() {
     let names = [];
@@ -60,9 +61,9 @@ export class SignupComponent implements OnInit{
       this.authSer.signup(this.user).subscribe(res => {
         console.log(res);
         if (res.success == true) {
-          this.router.navigate(['/login']);          
+          this.router.navigate(['/activate/email']);          
         } else {
-          alert("Failed!")
+          this.toastr.error(res.message, "Oops!", { timeOut: 3000, closeButton: true, progressBar: true, progressAnimation: 'decreasing' });
 
         }
 

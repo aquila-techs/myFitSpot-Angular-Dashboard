@@ -7,7 +7,9 @@ import { BlankComponent } from './layouts/blank/blank.component';
 import { LoginComponent } from "./authentication/login/login.component";
 import { SignupComponent } from "./authentication/signup/signup.component";
 import { ForgotPasswordComponent } from "./authentication/forgot-password/forgot-password.component";
-
+import { ResetPasswordRedirectComponent } from "./shared/reset-password-redirect/reset-password-redirect.component";
+import { RedirectVerificationComponent } from "./shared/redirect-verification/redirect-verification.component";
+import { ActivateEmailComponent } from "./shared/activate-email/activate-email.component";
 //Guards
 import { AuthRoutesAppearanceGuard } from "./guards/auth-routes-appearance.guard";
 import { AdminGuard } from "./guards/admin.guard";
@@ -46,6 +48,18 @@ const routes: Routes = [
   {
     path: 'forgotpassword',
     component: ForgotPasswordComponent
+  },
+  {
+  path: "user/verify/:userToken",
+    component: RedirectVerificationComponent
+  },
+  {
+  path: "reset/password/:userToken",
+    component: ResetPasswordRedirectComponent
+  },
+  {
+  path: "activate/email",
+    component: ActivateEmailComponent
   },
   {
     path: '',
