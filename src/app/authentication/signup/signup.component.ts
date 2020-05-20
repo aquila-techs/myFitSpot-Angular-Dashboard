@@ -2,6 +2,7 @@ import { Component,OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthenticationService  } from "../services/authentication.service";
 import { ToastrService } from 'ngx-toastr';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-signup',
@@ -14,7 +15,8 @@ export class SignupComponent implements OnInit{
   partnersData = [];
   dropdownSettings = {};
   closeDropdownSelection = false;
-
+  recaptchaKey = environment.recaptchaKey;
+  captcha = false;
 
   user={name:"",email:"",password:"",referBy:""}
 
@@ -57,19 +59,33 @@ export class SignupComponent implements OnInit{
   }
 
   signup() {
-    if (this.user.email && this.user.password) {
-      this.authSer.signup(this.user).subscribe(res => {
-        console.log(res);
-        if (res.success == true) {
-          this.router.navigate(['/activate/email']);          
-        } else {
-          this.toastr.error(res.message, "Oops!", { timeOut: 3000, closeButton: true, progressBar: true, progressAnimation: 'decreasing' });
-
-        }
-
-      })
+    if (this.captcha) {
+      if (this.user.email && this.user.password) {
+        this.authSer.signup(this.user).subscribe(res => {
+          console.log(res);
+          if (res.success == true) {
+            this.router.navigate(['/activate/email']);          
+          } else {
+            this.toastr.error(res.message, "Oops!", { timeOut: 3000, closeButton: true, progressBar: true, progressAnimation: 'decreasing' });
+  
+          }
+  
+        })
+      }
+    } else {
+      this.toastr.error("Please Verify you are not robot by checking the recaptcha!", "Oops!", { timeOut: 3000, closeButton: true, progressBar: true, progressAnimation: 'decreasing' });
     }
+  
   }
 
+  resolved(captchaResponse) {
+    console.log(`Resolved response token: ${captchaResponse}`);
+    this.authSer.verifyRecaptcha({ recaptcha: captchaResponse }).subscribe(res => {
+      console.log(res)
+      if (res.status == true) {
+        this.captcha = true;
+      }
+    })
+  }
 
 }

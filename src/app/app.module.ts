@@ -14,6 +14,7 @@ import { ToastrModule } from 'ngx-toastr';
 import { PerfectScrollbarModule } from 'ngx-perfect-scrollbar';
 import { PERFECT_SCROLLBAR_CONFIG } from 'ngx-perfect-scrollbar';
 import { PerfectScrollbarConfigInterface } from 'ngx-perfect-scrollbar';
+import { RecaptchaModule, RecaptchaFormsModule } from 'ng-recaptcha';
 
 import { AppRoutingModule } from './app-routing.module';
 
@@ -74,6 +75,8 @@ const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
     RouterModule,
     PerfectScrollbarModule,
     NgMultiSelectDropDownModule.forRoot(),
+    RecaptchaModule,  //this is the recaptcha main module
+    RecaptchaFormsModule
   ],
   providers: [
   {

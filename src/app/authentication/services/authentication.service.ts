@@ -21,6 +21,11 @@ export class AuthenticationService {
     return this.http.post("/user/send/reset/password/email", body);
   }
 
+ verifyRecaptcha(body): Observable<any> {
+    return this.http.post("/user/verify/recaptcha", body);
+  }
+  
+
   getAllPartners(): Observable<any> {
     return this.http.get("/user/all/partners");
   }

@@ -23,6 +23,15 @@
                         </div>
                         <div class="form-group row">
                             <div class="col-md-12">
+                                <re-captcha (resolved)="resolved($event)" 
+                                            formControlName="recaptchaReactive" 
+                                            siteKey="{{recaptchaKey}}">  
+                                </re-captcha>
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <div class="col-md-12">
                                 <!-- <div class="custom-control custom-checkbox"> -->
                                     <!-- <input type="checkbox" class="custom-control-input" id="customCheck1">
                                     <label class="custom-control-label" for="customCheck1">Remember me</label> -->
