@@ -1,0 +1,95 @@
+<div class="row">
+
+    <div class="col-md-9">
+        <div class="form-group">
+            <label>Add New Post</label>
+            <input type="text" class="form-control" id="posttitle" aria-describedby="emailHelp" placeholder="Add title">
+        </div>
+        <div class="card">
+            <div class="card-body">
+                <quill-editor [styles]="{height: '300px'}" (onFocus)="focus($event)" (onEditorChanged)="changedEditor($event)"  (onBlur)="blur($event)" (onEditorCreated)="created($event)"></quill-editor>
+            </div>
+        </div>
+
+
+        <ngb-accordion activeIds="custom-panel-1">
+            <ngb-panel id="custom-panel-1">
+              <ng-template ngbPanelHeader let-opened="opened">
+                <div class="d-flex align-items-left justify-content-between">
+                  <h5 class="m-0"></h5>
+                  <button ngbPanelToggle class="btn btn-link p-0"><i class="mdi mdi-arrow-down-bold-circle"></i></button>
+                </div>
+              </ng-template>
+              <ng-template ngbPanelContent>
+               
+                <div class="card">
+                    <div class="card-body">
+                        <form>
+                            <div class="form-group">
+                                <textarea class="form-control" rows="3" placeholder="Excerpt Here..."  maxlength="30"></textarea>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+
+              </ng-template>
+            </ngb-panel>
+
+      </ngb-accordion>
+
+
+
+
+    </div>
+    <div class="col-md-3">
+      <!-- Categories -->
+
+        <div class="card m-t-30" >
+            <div class="card-header bg-success text-white">
+                <h4 class="card-title">Categories</h4>
+                    <!-- <i class="ti-location-pin"></i> Lester</h4> -->
+            </div>
+            <div class="card-body">
+                <div class="todo-widget scrollable" style="height:200px;" [perfectScrollbar]="config">
+                    <ul class="list-task todo-list list-group m-b-0" data-role="tasklist">
+                        <li class="list-group-item todo-item" data-role="task">
+                            <div class="custom-control custom-checkbox">
+                                <input type="checkbox" class="custom-control-input" id="customCheck">
+                                <label class="custom-control-label todo-label" for="customCheck">
+                                    <span class="todo-desc">Category 1</span>
+                                    <!-- <span class="badge badge-pill badge-danger float-right">Today</span> -->
+                                </label>
+                            </div>
+                            <div class="custom-control custom-checkbox">
+                                <input type="checkbox" class="custom-control-input" id="customCheck1">
+                                <label class="custom-control-label todo-label" for="customCheck1">
+                                    <span class="todo-desc">Category 1</span>
+                                    <!-- <span class="badge badge-pill badge-danger float-right">Today</span> -->
+                                </label>
+                            </div>
+                        
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <!-- Categories End -->
+
+              <!-- Tags -->
+
+              <div class="card bg-light m-t-30" >
+                <div class="card-header bg-dark text-white">
+                    <h4 class="card-title">Tags</h4>
+                        <!-- <i class="ti-location-pin"></i> Lester</h4> -->
+                </div>
+                <div class="card-body">
+                    <ng-select [multiple]="true" [(ngModel)]="selectedItems">
+                        <ng-option *ngFor="let list of dropdownList" [value]="list.id" >{{list.item_text}}</ng-option>
+                        <!-- <ng-option [value]="'custom'">Custom</ng-option> -->
+                    </ng-select>
+                </div>
+            </div>
+            <!-- Tags End -->
+
+    </div>
+</div>

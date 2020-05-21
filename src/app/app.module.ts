@@ -15,6 +15,8 @@ import { PerfectScrollbarModule } from 'ngx-perfect-scrollbar';
 import { PERFECT_SCROLLBAR_CONFIG } from 'ngx-perfect-scrollbar';
 import { PerfectScrollbarConfigInterface } from 'ngx-perfect-scrollbar';
 import { RecaptchaModule, RecaptchaFormsModule } from 'ng-recaptcha';
+import { NgSelectModule } from '@ng-select/ng-select';
+import { NgOptionHighlightModule } from '@ng-select/ng-option-highlight';
 
 import { AppRoutingModule } from './app-routing.module';
 
@@ -76,7 +78,9 @@ const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
     PerfectScrollbarModule,
     NgMultiSelectDropDownModule.forRoot(),
     RecaptchaModule,  //this is the recaptcha main module
-    RecaptchaFormsModule
+    RecaptchaFormsModule,
+    NgSelectModule,
+    NgOptionHighlightModule
   ],
   providers: [
   {
