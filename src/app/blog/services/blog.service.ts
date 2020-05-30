@@ -23,4 +23,21 @@ export class BlogService {
     return this.http.delete("/categories/delete/" + param );
   }
 
+
+  // Tags Services 
+  
+  creatTag(body): Observable<any> {
+    return this.http.post("/tag/create", body);
+  }
+  getUserTags(): Observable<any> {
+    return this.http.get("/tag/get/user");
+  }
+  updateUserTag(param,body): Observable<any> {
+    return this.http.put("/tag/update/" + param,body );
+  }
+  deleteUserTag(param): Observable<any> {
+    return this.http.delete("/tag/delete/" + param );
+  }
+
+
 }
