@@ -17,7 +17,10 @@ export class BlogService {
     return this.http.get("/categories/get");
   }
   updateUserCategory(param,body): Observable<any> {
-    return this.http.get("/categories/update/" + param,body );
+    return this.http.put("/categories/update/" + param,body );
+  }
+  deleteUserCategory(param): Observable<any> {
+    return this.http.delete("/categories/delete/" + param );
   }
 
 }

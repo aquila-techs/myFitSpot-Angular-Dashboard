@@ -42,4 +42,19 @@ export class CategoriesComponent implements OnInit {
     })
   }
 
+
+  deleteCategory(catId,i) {
+    console.log(catId)
+    this.blogSer.deleteUserCategory(catId).subscribe(res => {
+      console.log(res)
+      if (res.status === true) {
+        this.Categories.splice(i, 1);
+        this.toastr.success("Category Deleted!", 'Success!', {timeOut: 3000,closeButton: true,progressBar:true,progressAnimation:'decreasing'});
+      } else {
+        this.toastr.error(res.message, 'Oops!', { timeOut: 3000, closeButton: true, progressBar: true, progressAnimation: 'decreasing' });
+      }
+     })
+  }
+
+
 }

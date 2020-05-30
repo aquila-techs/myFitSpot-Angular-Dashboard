@@ -27,7 +27,7 @@
         </div>
     </div>
     <div class="col-md-8">
-        <div class="scrollable table-responsive" style="height:500px;" [perfectScrollbar]="config">
+        <div class="scrollable table-responsive" style="height:600px;" [perfectScrollbar]="config">
             <table class="table table-hover text-center">
                 <thead class="thead-light">
                   <tr>
@@ -46,7 +46,7 @@
                       <td>1</td>          
                       <td>
                         <i class="ti-pencil text-info m-r-10 pointer"></i>
-                        <i class="ti-trash text-danger pointer"></i></td>
+                        <i class="ti-trash text-danger pointer" (click)="deleteCategory(ca._id,i)" ></i></td>
                     </tr>
                </tbody>
             </table>
