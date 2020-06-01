@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ToastrService } from 'ngx-toastr';
 import { PerfectScrollbarConfigInterface } from 'ngx-perfect-scrollbar';  
-
+import { Router } from "@angular/router";
 import { BlogService } from "../services/blog.service";
 import { NgForm } from '@angular/forms';
 
@@ -16,7 +16,7 @@ export class TagsComponent implements OnInit {
   tags;
   
   public config: PerfectScrollbarConfigInterface = {};
-  constructor(private blogSer: BlogService, private toastr: ToastrService) { }
+  constructor(private blogSer: BlogService, private toastr: ToastrService,private router:Router) { }
 
   ngOnInit(): void {
     this.blogSer.getUserTags().subscribe(res => {
@@ -51,6 +51,11 @@ export class TagsComponent implements OnInit {
         this.toastr.error(res.message, 'Oops!', { timeOut: 3000, closeButton: true, progressBar: true, progressAnimation: 'decreasing' });
       }
      })
+  }
+
+  updateTag(tagId) {
+    console.log(tagId);
+    this.router.navigate(['/post/tag/'+tagId])
   }
 
 }

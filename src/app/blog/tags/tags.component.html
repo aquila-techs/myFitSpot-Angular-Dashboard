@@ -39,7 +39,7 @@
                       <td>{{ t?.slug }}</td>
                       <td>1</td>          
                       <td>
-                        <i class="ti-pencil text-info m-r-10 pointer "></i>
+                        <i class="ti-pencil text-info m-r-10 pointer" (click)= "updateTag(t._id)"></i>
                         <i class="ti-trash text-danger pointer" (click)="deleteTag(t._id,i)" ></i></td>
                     </tr>
                </tbody>

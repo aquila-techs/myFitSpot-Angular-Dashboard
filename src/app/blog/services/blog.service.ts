@@ -32,6 +32,9 @@ export class BlogService {
   getUserTags(): Observable<any> {
     return this.http.get("/tag/get/user");
   }
+  getSingleTag(param): Observable<any> {
+    return this.http.get("/tag/get/user/"+param);
+  }
   updateUserTag(param,body): Observable<any> {
     return this.http.put("/tag/update/" + param,body );
   }
