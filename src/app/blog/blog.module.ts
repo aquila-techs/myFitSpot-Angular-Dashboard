@@ -16,10 +16,12 @@ import { CategoriesComponent } from './categories/categories.component';
 import { TagsComponent } from './tags/tags.component';
 import { NgOptionHighlightModule } from '@ng-select/ng-option-highlight';
 import { NgSelectModule } from '@ng-select/ng-select';
+import { CategoriesUpdateComponent } from './categories/categories-update/categories-update.component';
+import { TagsUpdateComponent } from './tags/tags-update/tags-update.component';
 
 
 @NgModule({
-  declarations: [AllPostsComponent, AddPostComponent, CategoriesComponent, TagsComponent],
+  declarations: [AllPostsComponent, AddPostComponent, CategoriesComponent, TagsComponent, CategoriesUpdateComponent, TagsUpdateComponent],
   imports: [
     CommonModule,
     FormsModule,
