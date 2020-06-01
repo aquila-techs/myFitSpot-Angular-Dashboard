@@ -1,10 +1,12 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit,ViewChild } from '@angular/core';
 import { EditorChangeContent, EditorChangeSelection } from 'ngx-quill'
 import Quill from 'quill'
 import { NgbPanelChangeEvent } from '@ng-bootstrap/ng-bootstrap';
 import { PerfectScrollbarConfigInterface } from 'ngx-perfect-scrollbar';  
 import { IDropdownSettings } from 'ng-multiselect-dropdown';
-
+import { ToastrService } from 'ngx-toastr';
+import { BlogService } from "../services/blog.service";
+import { Router } from "@angular/router";
 
 @Component({
   selector: 'app-add-post',
@@ -15,44 +17,30 @@ export class AddPostComponent implements OnInit {
 
   blurred = false;
   focused = false;
-  post = { title: "", body: "" };
+  post = { title: "", description: "" ,excerpt:"",categories:[],tags:[]};
   
-  dropdownList = [
-    { id: 1, item_text: 'Mumbai' },
-    { id: 2, item_text: 'Bangaluru' },
-    { id: 3, item_text: 'Pune' },
-    { id: 4, item_text: 'Navsari' },
-    { id: 5, item_text: 'New Delhi' }
-  ];
+  dropdownList = [] as any;
   selectedItems = [];
-  // settings:IDropdownSettings = {
-  //   singleSelection: false,
-  //   idField: "id",
-  //   textField: 'item_text',
-  //   selectAllText: 'Select All',
-  //   unSelectAllText: 'UnSelect All',
-  //   itemsShowLimit: 3,
-  //   allowSearchFilter: true
-  // };
-  // closeDropdownSelection = false;
-
-
+ 
+  categories = [];
 
   public config: PerfectScrollbarConfigInterface = {};
 
-  constructor() { }
+  constructor(private blogSer:BlogService, private toastr: ToastrService,private router:Router) { }
   ngOnInit(): void {
-    // this.dropdownList = [
-    //   { id: 1, item_text: 'Mumbai' },
-    //   { id: 2, item_text: 'Bangaluru' },
-    //   { id: 3, item_text: 'Pune' },
-    //   { id: 4, item_text: 'Navsari' },
-    //   { id: 5, item_text: 'New Delhi' }
-    // ];
-    // this.selectedItems = [
-    //    3 , 4
-    // ];
-
+    this.blogSer.getUserTags().subscribe(res => {
+      console.log("Tags:", res)
+      if (res.status === true) {
+        this.dropdownList = res.data
+      }
+    })
+    this.blogSer.getUserCategories().subscribe(res => {
+      console.log("Categories", res)
+      if (res.status === true) {
+        this.categories = res.data;         
+      }
+ 
+    })
   }
 
   created(event: Quill) {
@@ -60,9 +48,14 @@ export class AddPostComponent implements OnInit {
     console.log('editor-created', event)
   }
 
-  changedEditor(event: EditorChangeContent | EditorChangeSelection) {
+  changedEditor(event) {
     // tslint:disable-next-line:no-console
     console.log('editor-change', event)
+    if (event.event == "text-change") {
+      this.post.description = event.html;
+      console.log(this.post.description)      
+    }
+
   }
 
   focus($event) {
@@ -85,6 +78,38 @@ export class AddPostComponent implements OnInit {
   onSelectAll(items: any) {
     console.log(items);
   }
+
+  addCategory(catId) {
+    // console.log(catId)
+    let check = this.post.categories.includes(catId);
+    // console.log("Check:",check)
+    if (check === true) {
+      this.post.categories = this.post.categories.filter(ele => ele != catId);
+      // console.log("Post Categories from True:",this.post.categories);
+    } else{
+      this.post.categories.push(catId);
+      // console.log("Post Categories from false:",this.post.categories)
+   } 
+  }
+
+  gotoPost() {
+    
+  }
+
+  publishPost() {
+    console.log(this.post)
+    this.blogSer.createPost(this.post).subscribe(res => {
+      console.log(res)
+      if (res.status == true) {
+        this.toastr.success("Post Published!", 'Success!', { timeOut: 3000, closeButton: true, progressBar: true, progressAnimation: 'decreasing' });
+        setTimeout(()=>this.router.navigateByUrl('/post/all'),1000)
+      } else {
+        this.toastr.error(res.message, 'Oops!', { timeOut: 3000, closeButton: true, progressBar: true, progressAnimation: 'decreasing' });
+      }
+    })
+  }
+
+
 
 
 }

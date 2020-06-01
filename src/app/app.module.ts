@@ -17,7 +17,7 @@ import { PerfectScrollbarConfigInterface } from 'ngx-perfect-scrollbar';
 import { RecaptchaModule, RecaptchaFormsModule } from 'ng-recaptcha';
 import { NgSelectModule } from '@ng-select/ng-select';
 import { NgOptionHighlightModule } from '@ng-select/ng-option-highlight';
-
+import { AccordionModule } from '@syncfusion/ej2-angular-navigations';
 import { AppRoutingModule } from './app-routing.module';
 
 
@@ -80,7 +80,8 @@ const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
     RecaptchaModule,  //this is the recaptcha main module
     RecaptchaFormsModule,
     NgSelectModule,
-    NgOptionHighlightModule
+    NgOptionHighlightModule,
+    AccordionModule
   ],
   providers: [
   {

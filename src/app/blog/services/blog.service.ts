@@ -42,5 +42,20 @@ export class BlogService {
     return this.http.delete("/tag/delete/" + param );
   }
 
+    // Post Services 
+  
+    createPost(body): Observable<any> {
+      return this.http.post("/post/create", body);
+    }
+    getUserPosts(body): Observable<any> {
+      return this.http.post("/post/get/relatedTo/user",body);
+    }
+    updateUserPost(param,body): Observable<any> {
+      return this.http.put("/post/update/" + param,body );
+    }
+    deleteUserPost(param): Observable<any> {
+      return this.http.delete("/post/delete/" + param );
+    }
+
 
 }

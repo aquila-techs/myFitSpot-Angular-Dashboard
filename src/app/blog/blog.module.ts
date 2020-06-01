@@ -6,6 +6,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { PerfectScrollbarModule } from 'ngx-perfect-scrollbar';
 import { QuillModule } from 'ngx-quill';
 import { NgMultiSelectDropDownModule } from 'ng-multiselect-dropdown';
+import { AccordionModule } from '@syncfusion/ej2-angular-navigations';
 
 import Counter from './counter';
 
@@ -31,6 +32,7 @@ import { TagsUpdateComponent } from './tags/tags-update/tags-update.component';
     NgSelectModule,
     NgOptionHighlightModule,
     NgMultiSelectDropDownModule.forRoot(),
+    AccordionModule,
     QuillModule.forRoot({
       customModules: [{
         implementation: Counter,
