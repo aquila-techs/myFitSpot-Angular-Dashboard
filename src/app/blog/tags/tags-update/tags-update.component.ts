@@ -27,7 +27,8 @@ export class TagsUpdateComponent implements OnInit {
     this.blogSer.updateUserTag(this.actRoute.snapshot.params.tagId, this.tag).subscribe(res => {
       console.log(res)
       if (res.status == true) {
-        this.toastr.success("Tag Updated!", 'Success!', {timeOut: 3000,closeButton: true,progressBar:true,progressAnimation:'decreasing'});       
+        this.toastr.success("Tag Updated!", 'Success!', { timeOut: 3000, closeButton: true, progressBar: true, progressAnimation: 'decreasing' });
+        this.router.navigate(['/post/tags']);
       } else {
         this.toastr.error(res.message, 'Oops!', { timeOut: 3000, closeButton: true, progressBar: true, progressAnimation: 'decreasing' });
       }

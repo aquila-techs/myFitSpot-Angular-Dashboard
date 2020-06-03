@@ -6,7 +6,7 @@ import { AddPostComponent } from "./add-post/add-post.component";
 import { CategoriesComponent } from "./categories/categories.component";
 import { TagsComponent } from "./tags/tags.component";
 import { TagsUpdateComponent } from "./tags/tags-update/tags-update.component";
-
+import { CategoriesUpdateComponent } from "./categories/categories-update/categories-update.component";
 
 const routes: Routes = [
   {
@@ -84,6 +84,22 @@ const routes: Routes = [
         urls: [
           { title: 'Posts', url: '/post/all' },
           { title: 'All Categories' }
+        ]
+      }
+    },
+ ]  
+},
+{
+  path: '',
+  children: [
+    {
+      path: 'category/:catId',
+      component: CategoriesUpdateComponent,
+      data: {
+        // title: 'Tags',
+        urls: [
+          { title: 'Categories', url: '/post/categories' },
+          { title: 'Update Category' }
         ]
       }
     },

@@ -16,6 +16,9 @@ export class BlogService {
   getUserCategories(): Observable<any> {
     return this.http.get("/categories/get");
   }
+  getSingleCategory(param): Observable<any> {
+    return this.http.get("/categories/get/user/"+param);
+  }
   updateUserCategory(param,body): Observable<any> {
     return this.http.put("/categories/update/" + param,body );
   }

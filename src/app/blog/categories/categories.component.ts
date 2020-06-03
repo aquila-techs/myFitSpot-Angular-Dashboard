@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ToastrService } from 'ngx-toastr';
 import { PerfectScrollbarConfigInterface } from 'ngx-perfect-scrollbar';
-
+import { Router } from "@angular/router";
 import { BlogService } from "../services/blog.service";
 
   
@@ -16,15 +16,15 @@ export class CategoriesComponent implements OnInit {
   category  = { name: "", slug: "", description: "" } as any;
   parentCategory = "";
   Categories;
-  constructor(private blogSer: BlogService, private toastr: ToastrService) { }
+  constructor(private blogSer: BlogService, private toastr: ToastrService,private router:Router) { }
 
   ngOnInit(): void {
     this.blogSer.getUserCategories().subscribe(res => {
       console.log(res);
       if (res.status == true) {
-        this.Categories = res.data        
+        this.Categories = res.data
       }
-    })
+    });
   }
 
   addCategory() {
@@ -56,5 +56,9 @@ export class CategoriesComponent implements OnInit {
      })
   }
 
+  updateCategory(catId) {
+    console.log(catId);
+    this.router.navigateByUrl(['/post/category/'] + catId);
+  }
 
 }
