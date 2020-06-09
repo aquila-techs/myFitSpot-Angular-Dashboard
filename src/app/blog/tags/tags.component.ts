@@ -5,6 +5,9 @@ import { Router } from "@angular/router";
 import { BlogService } from "../services/blog.service";
 import { NgForm } from '@angular/forms';
 
+
+import { TranslateService } from '@ngx-translate/core';
+
 @Component({
   selector: 'app-tags',
   templateUrl: './tags.component.html',
@@ -16,7 +19,7 @@ export class TagsComponent implements OnInit {
   tags;
   
   public config: PerfectScrollbarConfigInterface = {};
-  constructor(private blogSer: BlogService, private toastr: ToastrService,private router:Router) { }
+  constructor(private blogSer: BlogService, private toastr: ToastrService, private router: Router) { }
 
   ngOnInit(): void {
     this.blogSer.getUserTags().subscribe(res => {

@@ -18,13 +18,14 @@ export class SignupComponent implements OnInit{
   recaptchaKey = environment.recaptchaKey;
   captcha = false;
 
-  user={name:"",email:"",password:"",referBy:""}
+  user = { name: "", email: "", password: "", referBy: "" } as any;
 
 
   constructor(private authSer: AuthenticationService,private router:Router,private toastr:ToastrService) {}
 
   ngOnInit() {
     let names = [];
+
     this.authSer.getAllPartners().subscribe(async res=>{
       // console.log(res)
       this.partnersData = res.users;
@@ -61,6 +62,10 @@ export class SignupComponent implements OnInit{
   signup() {
     if (this.captcha) {
       if (this.user.email && this.user.password) {
+        if (this.user.referBy == "") {
+          delete this.user.referBy;
+        }
+        // console.log(this.user)
         this.authSer.signup(this.user).subscribe(res => {
           console.log(res);
           if (res.success == true) {
@@ -80,10 +85,13 @@ export class SignupComponent implements OnInit{
 
   resolved(captchaResponse) {
     console.log(`Resolved response token: ${captchaResponse}`);
+    this.captcha = true;
     this.authSer.verifyRecaptcha({ recaptcha: captchaResponse }).subscribe(res => {
       console.log(res)
       if (res.status == true) {
         this.captcha = true;
+      } else {
+        this.toastr.error("Recaptcha Verification Failed!", "Oops!", { timeOut: 3000, closeButton: true, progressBar: true, progressAnimation: 'decreasing' });        
       }
     })
   }

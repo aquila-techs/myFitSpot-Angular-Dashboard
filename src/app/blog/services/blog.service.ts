@@ -47,8 +47,15 @@ export class BlogService {
 
     // Post Services 
   
-    createPost(body): Observable<any> {
-      return this.http.post("/post/create", body);
+  createPost(body, file:File): Observable<any> {
+
+    let formData = new FormData();
+    formData.append("postImage", file);
+    formData.append("title", body.title);
+    formData.append("description", body.description);
+    formData.append("categories", JSON.stringify(body['categories']));
+    formData.append("tags", JSON.stringify(body['tags']));
+      return this.http.post("/post/create", formData);
     }
     getUserPosts(body): Observable<any> {
       return this.http.post("/post/get/relatedTo/user",body);

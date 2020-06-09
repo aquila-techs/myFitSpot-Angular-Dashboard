@@ -2,7 +2,7 @@
     <div class="col-md-4">
         <form #myForm="ngForm">
             <div class="form-group">
-                <label>Name</label>
+                <label>{{'Name' | translate}}</label>
                 <input type="text" class="form-control radius" [(ngModel)]="tag.name" id="categoryname" name="name" aria-describedby="categoryName" >
                 <small class="text-muted">The name is how it appears on your site.</small>
             </div>

@@ -63,3 +63,31 @@ label {
 .btn-info {
     width: 100%;
 }
+
+.upload-btn-wrapper {
+  position: relative;
+  overflow: hidden;
+  display: inline-block;
+}
+
+.btn1 {
+  /* border: 1px solid gray; */
+  /* color: gray; */
+  background-color: white;
+  /* padding: 8px 20px; */
+  border-radius: 8px;
+  font-size: 20px;
+  /* font-weight: bold; */
+}
+
+.upload-btn-wrapper input[type=file] {
+  font-size: 50px;
+  position: absolute;
+  left: 0;
+  top: 0;
+  opacity: 0;
+}
+
+.pointer{
+  cursor: pointer;
+}

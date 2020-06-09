@@ -101,6 +101,37 @@
               </div>    
             <!-- Tags End -->
 
+            <!-- Feature Image -->
+
+            <div class="m-t-10">
+              <ejs-accordion >
+                  <e-accordionitems>
+                    <e-accordionitem expanded='true'>
+                      <ng-template  #header>
+                        <div>Feature Image</div>
+                      </ng-template>
+                      <ng-template #content>
+                        <div class="upload-btn-wrapper pointer">
+                          <button style="padding: 0; border: 0; background: transparent;"
+                              class="btn1">
+                              <div
+                                  style="flex-direction: column; border: 2px dashed #999; background-color: transparent; width: 200px; height: 100px; display: flex; justify-content: center; align-items: center;">
+                                  <img *ngIf="imageUrl"
+                                      style="opacity: 0.7; z-index: 1; position: absolute; top: 0; bottom: 0; left: 0; right: 0"
+                                      [src]="imageUrl" width="300" height="200" />
+                                      
+                                      <i *ngIf="!imageUrl" style="z-index: 2; color: #444;"
+                                          class="fa fa-upload pointer"></i>
+                                          <span *ngIf="!imageUrl" style="z-index: 2; color: #444; font-weight: 20px;" class="text-muted">Upload Feature Image</span>
+                                    </div>
+                          </button>
+                        <input type="file" name="banner" #fileInput (change)="onChange(fileInput.files[0])" class="custom-file-input" id="banner">                              
+                      </div>
+                      </ng-template>
+                    </e-accordionitem>
+                  </e-accordionitems>
+              </ejs-accordion>
+            </div>
     </div>
 </div>
 
