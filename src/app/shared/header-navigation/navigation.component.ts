@@ -1,5 +1,7 @@
 import { AuthHelperService } from './../../services/authHelper.service';
 import { Component, AfterViewInit, EventEmitter, Output } from '@angular/core';
+import { TranslateService } from '@ngx-translate/core';
+
 import {
   NgbModal,
   ModalDismissReasons,
@@ -21,8 +23,23 @@ export class NavigationComponent implements AfterViewInit {
   public config: PerfectScrollbarConfigInterface = {};
 
   public showSearch = false;
+  language = "English";
+  constructor(public translate: TranslateService, private modalService: NgbModal, private AuthHelperService: AuthHelperService, private router: Router) {
+    translate.addLangs(['en', 'nl']);
+    translate.setDefaultLang('en');
+  }
 
-  constructor(private modalService: NgbModal ,private AuthHelperService:AuthHelperService , private router:Router) {}
+  //Language Switcher
+  switchLang(lang: string) {
+    console.log(lang)
+    if (lang == "en") {
+      this.language = "English"
+    } else {
+      this.language = "Dutch"
+    }
+
+    this.translate.use(lang);
+  }
 
   // This is for Notifications
   notifications: Object[] = [

@@ -1,7 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { CommonModule } from '@angular/common';
+import { CommonModule, PathLocationStrategy } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule, HttpClient,HTTP_INTERCEPTORS } from '@angular/common/http';
 import { Routes, RouterModule } from '@angular/router';
@@ -19,7 +19,9 @@ import { NgSelectModule } from '@ng-select/ng-select';
 import { NgOptionHighlightModule } from '@ng-select/ng-option-highlight';
 import { AccordionModule } from '@syncfusion/ej2-angular-navigations';
 import { AppRoutingModule } from './app-routing.module';
-
+import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
+import { TranslateHttpLoader } from '@ngx-translate/http-loader';
+import { LocationStrategy,HashLocationStrategy } from '@angular/common';
 
 //Components
 import { AppComponent } from './app.component';
@@ -81,7 +83,14 @@ const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
     RecaptchaFormsModule,
     NgSelectModule,
     NgOptionHighlightModule,
-    AccordionModule
+    AccordionModule,
+    TranslateModule.forRoot({
+      loader: {
+        provide: TranslateLoader,
+        useFactory: httpTranslateLoader,
+        deps: [HttpClient]
+      }
+    })
   ],
   providers: [
   {
@@ -92,8 +101,18 @@ const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
     provide: HTTP_INTERCEPTORS,
     useClass: HttpRequestLoaderInterceptor,
     multi: true
-    }
+  },
+  // {
+  //     provide: LocationStrategy, 
+  //     useClass: HashLocationStrategy
+  // }
   ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
+
+// AOT compilation support
+export function httpTranslateLoader(http: HttpClient) {
+
+  return new TranslateHttpLoader(http);
+}

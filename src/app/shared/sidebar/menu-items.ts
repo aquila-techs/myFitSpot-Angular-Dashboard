@@ -32,22 +32,22 @@ export const ROUTES: RouteInfo[] = [
                 extralink: false,
                 submenu: []
             },
-            {
-                path: '/post/categories',
-                title: 'Categories',
-                icon: 'mdi mdi-apps',
-                class: '',
-                extralink: false,
-                submenu: []
-            },
-            {
-                path: '/post/tags',
-                title: 'Tags',
-                icon: 'mdi mdi-tag-multiple',
-                class: '',
-                extralink: false,
-                submenu: []
-            }
+            // {
+            //     path: '/post/categories',
+            //     title: 'Categories',
+            //     icon: 'mdi mdi-apps',
+            //     class: '',
+            //     extralink: false,
+            //     submenu: []
+            // },
+            // {
+            //     path: '/post/tags',
+            //     title: 'Tags',
+            //     icon: 'mdi mdi-tag-multiple',
+            //     class: '',
+            //     extralink: false,
+            //     submenu: []
+            // }
 
         ]
     },

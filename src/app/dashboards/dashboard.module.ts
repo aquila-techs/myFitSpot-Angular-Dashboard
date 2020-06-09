@@ -11,6 +11,9 @@ import { ChartistModule } from 'ng-chartist';
 import { NgxChartsModule } from '@swimlane/ngx-charts';
 import { NgxDatatableModule } from '@swimlane/ngx-datatable';
 import { CalendarModule, DateAdapter } from 'angular-calendar';
+import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
+import { TranslateHttpLoader } from '@ngx-translate/http-loader';
+import { HttpClientModule, HttpClient } from '@angular/common/http';
 
 import { adapterFactory } from 'angular-calendar/date-adapters/date-fns';
 import { DashboardRoutes } from './dashboard.routing';
@@ -85,7 +88,13 @@ import {
       useFactory: adapterFactory
     }),
     NgxChartsModule,
-    NgxDatatableModule
+    TranslateModule.forChild({
+      loader: {
+        provide: TranslateLoader,
+        useFactory: httpTranslateLoader,
+        deps: [HttpClient],
+      }
+  })
   ],
   declarations: [
     Dashboard1Component,
@@ -142,3 +151,9 @@ import {
   ]
 })
 export class DashboardModule {}
+
+// AOT compilation support
+export function httpTranslateLoader(http: HttpClient) {
+
+  return new TranslateHttpLoader(http);
+}

@@ -18,7 +18,10 @@ export class AddPostComponent implements OnInit {
   blurred = false;
   focused = false;
   post = { title: "", description: "" ,excerpt:"",categories:[],tags:[]};
-  
+   
+  fileName;
+  file;
+  imageUrl: string | ArrayBuffer = "";
   dropdownList = [] as any;
   selectedItems = [];
  
@@ -98,7 +101,7 @@ export class AddPostComponent implements OnInit {
 
   publishPost() {
     console.log(this.post)
-    this.blogSer.createPost(this.post).subscribe(res => {
+    this.blogSer.createPost(this.post,this.file).subscribe(res => {
       console.log(res)
       if (res.status == true) {
         this.toastr.success("Post Published!", 'Success!', { timeOut: 3000, closeButton: true, progressBar: true, progressAnimation: 'decreasing' });
@@ -109,6 +112,18 @@ export class AddPostComponent implements OnInit {
     })
   }
 
+  onChange(file: File) {
+    console.log(file)
+    if (file) {
+      this.fileName = file.name;
+      this.file = file;
+      const reader = new FileReader();
+      reader.readAsDataURL(file);
+      reader.onload = event => {
+        this.imageUrl = reader.result;
+      };
+    }
+  }
 
 
 

@@ -3,10 +3,10 @@ import { Routes, RouterModule } from '@angular/router';
 
 import { AllPostsComponent } from "./all-posts/all-posts.component";
 import { AddPostComponent } from "./add-post/add-post.component";
-import { CategoriesComponent } from "./categories/categories.component";
-import { TagsComponent } from "./tags/tags.component";
-import { TagsUpdateComponent } from "./tags/tags-update/tags-update.component";
-import { CategoriesUpdateComponent } from "./categories/categories-update/categories-update.component";
+// import { CategoriesComponent } from "./categories/categories.component";
+// import { TagsComponent } from "./tags/tags.component";
+// import { TagsUpdateComponent } from "./tags/tags-update/tags-update.component";
+// import { CategoriesUpdateComponent } from "./categories/categories-update/categories-update.component";
 
 const routes: Routes = [
   {
@@ -25,38 +25,38 @@ const routes: Routes = [
       },
    ]  
   },
-  {
-    path: '',
-    children: [
-      {
-        path: 'tags',
-        component: TagsComponent,
-        data: {
-          // title: 'Tags',
-          urls: [
-            { title: 'Posts', url: '/post/all' },
-            { title: 'All Tags' }
-          ]
-        }
-      },
-   ]  
- },
- {
-   path: '',
-   children: [
-     {
-       path: 'tag/:tagId',
-       component: TagsUpdateComponent,
-       data: {
-         // title: 'Tags',
-         urls: [
-           { title: 'Tags', url: '/post/tags' },
-           { title: 'Update Tag' }
-         ]
-       }
-     },
-  ]  
-},
+//   {
+//     path: '',
+//     children: [
+//       {
+//         path: 'tags',
+//         component: TagsComponent,
+//         data: {
+//           // title: 'Tags',
+//           urls: [
+//             { title: 'Posts', url: '/post/all' },
+//             { title: 'All Tags' }
+//           ]
+//         }
+//       },
+//    ]  
+//  },
+//  {
+//    path: '',
+//    children: [
+//      {
+//        path: 'tag/:tagId',
+//        component: TagsUpdateComponent,
+//        data: {
+//          // title: 'Tags',
+//          urls: [
+//            { title: 'Tags', url: '/post/tags' },
+//            { title: 'Update Tag' }
+//          ]
+//        }
+//      },
+//   ]  
+// },
  {
    path: '',
    children: [
@@ -73,38 +73,38 @@ const routes: Routes = [
      },
   ]  
 },
-{
-  path: '',
-  children: [
-    {
-      path: 'categories',
-      component: CategoriesComponent,
-      data: {
-        // title: 'Categories',
-        urls: [
-          { title: 'Posts', url: '/post/all' },
-          { title: 'All Categories' }
-        ]
-      }
-    },
- ]  
-},
-{
-  path: '',
-  children: [
-    {
-      path: 'category/:catId',
-      component: CategoriesUpdateComponent,
-      data: {
-        // title: 'Tags',
-        urls: [
-          { title: 'Categories', url: '/post/categories' },
-          { title: 'Update Category' }
-        ]
-      }
-    },
- ]  
-}
+// {
+//   path: '',
+//   children: [
+//     {
+//       path: 'categories',
+//       component: CategoriesComponent,
+//       data: {
+//         // title: 'Categories',
+//         urls: [
+//           { title: 'Posts', url: '/post/all' },
+//           { title: 'All Categories' }
+//         ]
+//       }
+//     },
+//  ]  
+// },
+// {
+//   path: '',
+//   children: [
+//     {
+//       path: 'category/:catId',
+//       component: CategoriesUpdateComponent,
+//       data: {
+//         // title: 'Tags',
+//         urls: [
+//           { title: 'Categories', url: '/post/categories' },
+//           { title: 'Update Category' }
+//         ]
+//       }
+//     },
+//  ]  
+// }
   
 ];
 
