@@ -9,12 +9,17 @@ import { environment } from 'src/environments/environment';
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css']
 })
-export class LoginComponent {
+export class LoginComponent implements OnInit {
   body = {email: '',password: ''} 
   recaptchaKey = environment.recaptchaKey;
   captcha = false;
   constructor(private authSer: AuthenticationService,private router:Router,private toastr:ToastrService) { }
   
+
+  ngOnInit() {
+  }
+
+
   login() {
     if (this.captcha) {
       if (this.body.email && this.body.password) {
@@ -36,13 +41,15 @@ export class LoginComponent {
   }
 
   resolved(captchaResponse) {
-    console.log(`Resolved response token: ${captchaResponse}`);
-    this.authSer.verifyRecaptcha({ recaptcha: captchaResponse }).subscribe(res => {
-      console.log(res)
-      if (res.status == true) {
-        this.captcha = true;
-      }
-    })
+    // this.loginbtn.disabled = true;
+    // console.log(`Resolved response token: ${captchaResponse}`);
+    this.captcha = true;
+    // this.authSer.verifyRecaptcha({ recaptcha: captchaResponse }).subscribe(res => {
+    //   // console.log(res)
+    //   if (res.status == true) {
+    //     this.captcha = true;
+    //   }
+    // })
   }
 
 

@@ -6,6 +6,10 @@ export const environment = {
   production: false,
   baseUrl: "http://localhost:3003/api",
   // baseUrl: "http://140.82.50.108:3003/api",
+  liveUrl: "http://partner.myfitspot.com",
+  testUrl:"http://localhost:4200",
+  translateApiKey:"AIzaSyDUlOJSnK06FvTPbmhFULblL0DKZktfk8Y",
+  translateUrl:'https://translation.googleapis.com/language/translate/v2?key=',
   recaptchaKey:"6LcKMfoUAAAAAGNwUB77MiCNdwNeGvY_cy6lwSIC"
 };
 

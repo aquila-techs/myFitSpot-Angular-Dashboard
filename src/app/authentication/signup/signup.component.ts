@@ -84,16 +84,16 @@ export class SignupComponent implements OnInit{
   }
 
   resolved(captchaResponse) {
-    console.log(`Resolved response token: ${captchaResponse}`);
+    // console.log(`Resolved response token: ${captchaResponse}`);
     this.captcha = true;
-    this.authSer.verifyRecaptcha({ recaptcha: captchaResponse }).subscribe(res => {
-      console.log(res)
-      if (res.status == true) {
-        this.captcha = true;
-      } else {
-        this.toastr.error("Recaptcha Verification Failed!", "Oops!", { timeOut: 3000, closeButton: true, progressBar: true, progressAnimation: 'decreasing' });        
-      }
-    })
+    // this.authSer.verifyRecaptcha({ recaptcha: captchaResponse }).subscribe(res => {
+    //   // console.log(res)
+    //   if (res.status == true) {
+    //     this.captcha = true;
+    //   } else {
+    //     this.toastr.error("Recaptcha Verification Failed!", "Oops!", { timeOut: 3000, closeButton: true, progressBar: true, progressAnimation: 'decreasing' });        
+    //   }
+    // })
   }
 
 }
