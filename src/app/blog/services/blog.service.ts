@@ -52,6 +52,7 @@ export class BlogService {
     let formData = new FormData();
     formData.append("postImage", file);
     formData.append("title", body.title);
+    formData.append("url", body.url);
     formData.append("description", body.description);
     formData.append("categories", JSON.stringify(body['categories']));
     formData.append("tags", JSON.stringify(body['tags']));

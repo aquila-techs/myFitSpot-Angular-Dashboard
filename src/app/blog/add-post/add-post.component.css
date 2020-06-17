@@ -61,7 +61,11 @@ label {
 }
 
 .btn-info {
-    width: 100%;
+    width: 45%;
+}
+
+.btn-success {
+  width: 45%;
 }
 
 .upload-btn-wrapper {

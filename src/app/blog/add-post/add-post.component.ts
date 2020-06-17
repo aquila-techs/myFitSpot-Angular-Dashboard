@@ -7,6 +7,7 @@ import { IDropdownSettings } from 'ng-multiselect-dropdown';
 import { ToastrService } from 'ngx-toastr';
 import { BlogService } from "../services/blog.service";
 import { Router } from "@angular/router";
+import { GoogleTranslateService  } from "../../services/google-translate.service";
 
 @Component({
   selector: 'app-add-post',
@@ -17,8 +18,8 @@ export class AddPostComponent implements OnInit {
 
   blurred = false;
   focused = false;
-  post = { title: "", description: "" ,excerpt:"",categories:[],tags:[]};
-   
+  post = { title: "",url:"", description: "" ,excerpt:"",categories:[],tags:[]};
+ 
   fileName;
   file;
   imageUrl: string | ArrayBuffer = "";
@@ -27,9 +28,11 @@ export class AddPostComponent implements OnInit {
  
   categories = [];
 
+  private translateBtn: any;
   public config: PerfectScrollbarConfigInterface = {};
 
-  constructor(private blogSer:BlogService, private toastr: ToastrService,private router:Router) { }
+  constructor(private blogSer:BlogService, private toastr: ToastrService,private router:Router,private googleTrans:GoogleTranslateService) { }
+  
   ngOnInit(): void {
     this.blogSer.getUserTags().subscribe(res => {
       console.log("Tags:", res)
@@ -42,8 +45,8 @@ export class AddPostComponent implements OnInit {
       if (res.status === true) {
         this.categories = res.data;         
       }
- 
     })
+    this.translateBtn = document.getElementById('translatebtn');
   }
 
   created(event: Quill) {
@@ -113,7 +116,7 @@ export class AddPostComponent implements OnInit {
   }
 
   onChange(file: File) {
-    console.log(file)
+    // console.log(file)
     if (file) {
       this.fileName = file.name;
       this.file = file;
@@ -125,6 +128,18 @@ export class AddPostComponent implements OnInit {
     }
   }
 
+  translatePost() {
+    const googleObj = {
+      q: [this.post.title, this.post.description, this.post.excerpt],
+      // target: this.lang.value
+      target:'nl'
+    };
+    this.translateBtn.disabled = true;
+    this.googleTrans.translate(googleObj).subscribe(res => {
+      console.log(res);
+      this.translateBtn.disabled = false;
+    })
+  }
 
 
 }
