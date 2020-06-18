@@ -52,6 +52,7 @@ export class BlogService {
     let formData = new FormData();
     formData.append("postImage", file);
     formData.append("title", body.title);
+    formData.append("excerpt", body.excerpt);
     formData.append("url", body.url);
     formData.append("description", body.description);
     formData.append("categories", JSON.stringify(body['categories']));
@@ -61,9 +62,23 @@ export class BlogService {
     getUserPosts(body): Observable<any> {
       return this.http.post("/post/get/relatedTo/user",body);
     }
-    updateUserPost(param,body): Observable<any> {
-      return this.http.put("/post/update/" + param,body );
+  
+    getSinglePost(param): Observable<any> {
+      return this.http.get("/post/"+param);
     }
+  
+  updateUserPost(param, body, file: File): Observable<any> {
+    let formData = new FormData();
+    formData.append("postImage", file);
+    formData.append("title", body.title);
+    formData.append("excerpt", body.excerpt);
+    formData.append("url", body.url);
+    formData.append("description", body.description);
+    formData.append("categories", JSON.stringify(body['categories']));
+    formData.append("tags", JSON.stringify(body['tags']));
+      return this.http.put("/post/update/" + param,formData );
+  }
+  
     deleteUserPost(param): Observable<any> {
       return this.http.delete("/post/delete/" + param );
     }

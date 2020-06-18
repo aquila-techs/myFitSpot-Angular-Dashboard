@@ -46,6 +46,11 @@ export class AllPostsComponent implements OnInit {
     })
   }
 
+  updatePost(postId) {
+    console.log(postId);
+    this.router.navigateByUrl(['/post/update/'] + postId);
+  }
+
   pagination(val) {
     this.router.navigate([], {
       queryParams: { page: (val) ? val : 1 },

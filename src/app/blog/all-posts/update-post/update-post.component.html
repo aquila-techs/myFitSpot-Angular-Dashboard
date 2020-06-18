@@ -1,0 +1,149 @@
+<div class="row">
+    <div class="col-md-9">
+          <div class="form-group">
+              <label>Add New Post</label>
+              <input type="text" class="form-control radius" [(ngModel)]="post.title" id="posttitle" aria-describedby="emailHelp" placeholder="Add title">
+          </div>
+          <div class="form-group">
+            <input type="text" class="form-control radius"  [(ngModel)]="post.url" id="postUrl" placeholder="Add Blog Url">
+          </div>
+          <div class="form-group text-center">
+            <label>OR</label>
+          </div>
+          
+          <div class="card radius">
+              <div class="card-body radius">
+                  <quill-editor  [styles]="{height: '300px'}" [attr.disabled]="post.url != '' ? true : null" [(ngModel)]="post.description" (onFocus)="focus($event)" (onEditorChanged)="changedEditor($event)"  (onBlur)="blur($event)" (onEditorCreated)="created($event)"></quill-editor>
+              </div>
+          </div>
+  
+          <ejs-accordion >
+              <e-accordionitems>
+                <e-accordionitem expanded='true'>
+                  <ng-template  #header>
+                    <div  >Excerpt</div>
+                  </ng-template>
+                  <ng-template #content>
+                      <div class="form-group">
+                          <textarea class="form-control radius" rows="3" [(ngModel)]="post.excerpt" placeholder="Excerpt Here..."  maxlength="30"></textarea>
+                      </div>
+                  </ng-template>
+                </e-accordionitem>
+              </e-accordionitems>
+          </ejs-accordion>
+  
+          <!-- <ngb-accordion class="radius" activeIds="custom-panel-1">
+              <ngb-panel id="custom-panel-1">
+                <ng-template ngbPanelHeader let-opened="opened">
+                  <div class="d-flex align-items-left justify-content-between">
+                    <h5 class="m-0">Excerpt</h5>
+                    <button ngbPanelToggle class="btn btn-link p-0 radius"><i class="mdi mdi-arrow-down-bold-circle"></i></button>
+                  </div>
+                </ng-template>
+                <ng-template ngbPanelContent>
+                 
+                  <div class="card">
+                      <div class="card-body">
+                              <div class="form-group">
+                                  <textarea class="form-control radius" rows="3" [(ngModel)]="post.excerpt" placeholder="Excerpt Here..."  maxlength="30"></textarea>
+                              </div>
+                      </div>
+                  </div>
+  
+                </ng-template>
+              </ngb-panel>
+  
+        </ngb-accordion> -->
+    </div>
+      <div class="col-md-3">
+      <div class="form-group m-t-30 justify-content-end">
+              <button type="button" class="btn btn-info ml-auto radius" (click)="updatePost()" >Publish</button>
+              <button type="button" id="translatebtn" class="btn btn-success m-l-5 radius" (click)="translatePost()" >Translate</button>
+      </div>
+        <!-- Categories -->
+        <div class="m-t-10">
+          <ejs-accordion >
+              <e-accordionitems>
+                <e-accordionitem expanded='true'>
+                  <ng-template  #header>
+                    <div>Categories</div>
+                  </ng-template>
+                  <ng-template #content>
+                      <div class="todo-widget scrollable" style="height:200px;" [perfectScrollbar]="config">
+                          <ul class="list-task todo-list list-group m-b-0" data-role="tasklist">
+                              <li class="list-group-item todo-item" *ngFor="let c of categories" data-role="task">
+                                  <div class="form-check form-check-inline">
+                                      <div class="custom-control custom-checkbox">
+                                        <input (click)="addCategory(c._id)" [attr.checked]="post.categories.includes(c._id) ? true : null" name="block"class="custom-control-input" id="'b-'{{c._id}}" type="checkbox" />
+                                        <label class="custom-control-label" for="'b-'{{c._id}}">{{c?.name}}</label>
+                                      </div>
+                                  </div>
+                              </li>
+                          </ul>
+                      </div>
+                  </ng-template>
+                </e-accordionitem>
+              </e-accordionitems>
+          </ejs-accordion>
+        </div>    
+  
+          <!-- Categories End -->
+            <!-- Tags -->
+               <div class="m-t-10">
+                  <ejs-accordion >
+                      <e-accordionitems>
+                        <e-accordionitem expanded='true'>
+                          <ng-template  #header>
+                            <div>Tags</div>
+                          </ng-template>
+                          <ng-template #content>
+                                  <div class="card-body">
+                                      <ng-select [multiple]="true" appendTo="body" [(ngModel)]="post.tags">
+                                          <ng-option *ngFor="let list of dropdownList" [value]="list._id" >{{list?.name}}</ng-option>
+                                      </ng-select>
+                                  </div>
+                          </ng-template>
+                        </e-accordionitem>
+                      </e-accordionitems>
+                  </ejs-accordion>
+                </div>    
+              <!-- Tags End -->
+  
+              <!-- Feature Image -->
+  
+              <div class="m-t-10">
+                <ejs-accordion >
+                    <e-accordionitems>
+                      <e-accordionitem expanded='true'>
+                        <ng-template  #header>
+                          <div>Feature Image</div>
+                        </ng-template>
+                        <ng-template #content>
+                          <div class="upload-btn-wrapper pointer">
+                            <button style="padding: 0; border: 0; background: transparent;"
+                                class="btn1">
+                                <div
+                                    style="flex-direction: column; border: 2px dashed #999; background-color: transparent; width: 200px; height: 100px; display: flex; justify-content: center; align-items: center;">
+                                    <img *ngIf="imageUrl"
+                                        style="opacity: 0.7; z-index: 1; position: absolute; top: 0; bottom: 0; left: 0; right: 0"
+                                        [src]="imageUrl" width="300" height="200" />
+                                        
+                                        <i *ngIf="!imageUrl" style="z-index: 2; color: #444;"
+                                            class="fa fa-upload pointer"></i>
+                                            <span *ngIf="!imageUrl" style="z-index: 2; color: #444; font-weight: 20px;" class="text-muted">Upload Feature Image</span>
+                                      </div>
+                            </button>
+                          <input type="file" name="banner" #fileInput (change)="onChange(fileInput.files[0])" class="custom-file-input" id="banner">                              
+                        </div>
+                        </ng-template>
+                      </e-accordionitem>
+                    </e-accordionitems>
+                </ejs-accordion>
+              </div>
+      </div>
+  </div>
+  
+  
+  
+  
+  

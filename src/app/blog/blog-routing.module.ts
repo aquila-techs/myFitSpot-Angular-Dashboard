@@ -3,6 +3,7 @@ import { Routes, RouterModule } from '@angular/router';
 
 import { AllPostsComponent } from "./all-posts/all-posts.component";
 import { AddPostComponent } from "./add-post/add-post.component";
+import { UpdatePostComponent } from './all-posts/update-post/update-post.component';
 // import { CategoriesComponent } from "./categories/categories.component";
 // import { TagsComponent } from "./tags/tags.component";
 // import { TagsUpdateComponent } from "./tags/tags-update/tags-update.component";
@@ -72,7 +73,23 @@ const routes: Routes = [
        }
      },
   ]  
-},
+  },
+  {
+    path: '',
+    children: [
+      {
+        path: 'update/:postId',
+        component: UpdatePostComponent,
+        data: {
+         //  title: 'Add Post',
+          urls: [
+            { title: 'Posts', url: '/post/all' },
+            { title: 'Edit Post' }
+          ]
+        }
+      },
+   ]  
+ },
 // {
 //   path: '',
 //   children: [

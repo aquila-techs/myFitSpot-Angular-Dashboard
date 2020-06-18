@@ -55,6 +55,7 @@
               {{p?.createdAt | date:'shortDate' }}  
             </td>
             <td>
+              <i class="ti-pencil text-info m-r-10 pointer" (click)="updatePost(p._id)"></i>
               <i (click)="deletePost(p._id,i)" class="ti-trash text-danger pointer"></i>
             </td>
           </tr>
