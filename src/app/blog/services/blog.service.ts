@@ -56,6 +56,7 @@ export class BlogService {
     formData.append("url", body.url);
     formData.append("description", body.description);
     formData.append("categories", JSON.stringify(body['categories']));
+    formData.append("calories", JSON.stringify(body['calories']));
     formData.append("tags", JSON.stringify(body['tags']));
       return this.http.post("/post/create", formData);
     }
@@ -75,6 +76,7 @@ export class BlogService {
     formData.append("url", body.url);
     formData.append("description", body.description);
     formData.append("categories", JSON.stringify(body['categories']));
+    formData.append("calories", JSON.stringify(body['calories']));
     formData.append("tags", JSON.stringify(body['tags']));
       return this.http.put("/post/update/" + param,formData );
   }

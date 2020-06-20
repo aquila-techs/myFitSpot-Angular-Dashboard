@@ -4,10 +4,10 @@
 
 export const environment = {
   production: false,
-  baseUrl: "http://localhost:3003/api",
-  imgUrl:"http://localhost:3003/",
+  baseUrl: "https://localhost:3003/api",
+  imgUrl:"https://localhost:3003/",
   // baseUrl: "http://140.82.50.108:3003/api",
-  liveUrl: "http://partner.myfitspot.com",
+  liveUrl: "https://partner.myfitspot.com",
   testUrl:"http://localhost:4200",
   translateApiKey:"AIzaSyDUlOJSnK06FvTPbmhFULblL0DKZktfk8Y",
   translateUrl:'https://translation.googleapis.com/language/translate/v2?key=',

@@ -17,7 +17,7 @@
             </div>
         </div>
 
-        <ejs-accordion >
+        <!-- <ejs-accordion >
             <e-accordionitems>
               <e-accordionitem expanded='true'>
                 <ng-template  #header>
@@ -30,7 +30,7 @@
                 </ng-template>
               </e-accordionitem>
             </e-accordionitems>
-        </ejs-accordion>
+        </ejs-accordion> -->
 
         <!-- <ngb-accordion class="radius" activeIds="custom-panel-1">
             <ngb-panel id="custom-panel-1">
@@ -88,6 +88,33 @@
       </div>    
 
         <!-- Categories End -->
+                  <!-- Calories -->
+                  <div class="m-t-10">
+                    <ejs-accordion >
+                        <e-accordionitems>
+                          <e-accordionitem expanded='true'>
+                            <ng-template  #header>
+                              <div>Calories</div>
+                            </ng-template>
+                            <ng-template #content>
+                              <div class="todo-widget scrollable" style="height:200px;" [perfectScrollbar]="config">
+                                <ul class="list-task todo-list list-group m-b-0" data-role="tasklist">
+                                    <li class="list-group-item todo-item" *ngFor="let ca of calories" data-role="task">
+                                        <div class="form-check form-check-inline">
+                                            <div class="custom-control custom-checkbox">
+                                              <input (click)="addCalorie(ca._id)" name="block"class="custom-control-input" id="'b-'{{ca._id}}" type="checkbox" />
+                                              <label class="custom-control-label" for="'b-'{{ca._id}}">{{ca?.calories}}</label>
+                                            </div>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                            </ng-template>
+                          </e-accordionitem>
+                        </e-accordionitems>
+                    </ejs-accordion>
+                  </div>    
+                <!-- Calories End -->
           <!-- Tags -->
              <div class="m-t-10">
                 <ejs-accordion >
