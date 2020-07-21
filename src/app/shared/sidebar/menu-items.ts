@@ -59,6 +59,14 @@ export const ROUTES: RouteInfo[] = [
         extralink: false,
         submenu: [
             {
+                path: '/recipes/all',
+                title: 'All Recipes',
+                icon: 'mdi mdi-adjust',
+                class: '',
+                extralink: false,
+                submenu: []
+            },
+            {
                         path: '/recipes/addrecipe',
                         title: 'Add Recipe',
                         icon: 'mdi mdi-adjust',

@@ -1,0 +1,36 @@
+.margin{
+    margin-bottom: 5px;
+}
+
+.radius{
+    border-radius: 5px;
+}
+
+.pointer{
+    cursor: pointer;
+  }
+
+  .todo-widget .todo-list .todo-item {
+    padding: 5px 0px 0px 0px !important;
+}
+
+.e-accordion .e-acrdn-item.e-select.e-expand-state > .e-acrdn-header .e-acrdn-header-content {
+    color: #292627 ;
+}
+
+.e-accordion .e-acrdn-item.e-select.e-selected.e-expand-state > .e-acrdn-header, .e-accordion .e-acrdn-item.e-select.e-expand-state > .e-acrdn-header {
+    background: #d1d3d3 !important;
+}
+
+label {
+    font-weight: 400;
+}
+
+.e-accordion .e-acrdn-item.e-expand-state.e-select {
+    border-bottom: 1px solid rgb(177, 174, 174) !important;
+    border-top: none !important;
+}
+
+/* .my-group .form-control{
+    width:50%;
+} */

@@ -40,6 +40,7 @@ import { ActivateEmailComponent } from "./shared/activate-email/activate-email.c
 //Interceptor
 import { HttpRequestLoaderInterceptor } from './core/http-request-loader.interceptor';
 
+
 const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
   suppressScrollX: true,
   wheelSpeed: 1,
@@ -62,6 +63,7 @@ const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
     RedirectVerificationComponent,
     ResetPasswordRedirectComponent,
     ActivateEmailComponent
+    
   ],
   imports: [
     BrowserModule,
