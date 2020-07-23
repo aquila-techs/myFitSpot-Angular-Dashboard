@@ -39,7 +39,7 @@
               {{r?.createdAt | date:'shortDate' }}  
             </td>
             <td>
-              <!-- <i class="ti-pencil text-info m-r-10 pointer"></i> -->
+              <i class="ti-layout-cta-center text-info m-r-10 pointer" (click)="recipeDetail(r._id)"></i>
               <i (click)="deleteRecipe(r._id,i)" class="ti-trash text-danger pointer"></i>
             </td>
           </tr>

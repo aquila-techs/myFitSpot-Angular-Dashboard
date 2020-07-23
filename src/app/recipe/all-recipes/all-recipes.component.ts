@@ -48,6 +48,11 @@ export class AllRecipesComponent implements OnInit {
     })
   }
 
+  recipeDetail(recipeId) {
+    console.log(recipeId);
+    this.router.navigate(['/recipes/detail/' + recipeId]);
+  }
+
   pagination(val) {
     this.router.navigate([], {
       queryParams: { page: (val) ? val : 1 },

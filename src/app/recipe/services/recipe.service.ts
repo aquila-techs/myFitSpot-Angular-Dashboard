@@ -53,6 +53,9 @@ export class RecipeService {
     return this.http.post("/recipe/get/user/recipes",body);
   }
 
+  getSingleRecipe(param): Observable<any> {
+    return this.http.get("/recipe/"+param);
+  }
   deleteUserRecipes(param): Observable<any> {
     return this.http.delete("/recipe/"+param);
   }
