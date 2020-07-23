@@ -15,7 +15,7 @@ export class HttpRequestLoaderInterceptor implements HttpInterceptor {
         // this.showLoader();
         let token = localStorage.getItem('fat');
         // req.headers.set('auth-token', token)
-        console.log(req);
+        // console.log(req);
         if (req.url.match("/assets/i18n/en.json")|| req.url.match("/assets/i18n/nl.json")  ) {
             req = req.clone({
                 url: environment.liveUrl + req.url
