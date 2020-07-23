@@ -14,9 +14,9 @@ export class TagsUpdateComponent implements OnInit {
   tag = { name: "", slug: "", description: "" } as any;
   
   ngOnInit(): void {
-    console.log(this.actRoute.snapshot.params.tagId);
+    // console.log(this.actRoute.snapshot.params.tagId);
     this.blogSer.getSingleTag(this.actRoute.snapshot.params.tagId).subscribe(res=>{
-      console.log(res)
+      // console.log(res)
       if (res.status === true) {
         this.tag = res.data
       }
