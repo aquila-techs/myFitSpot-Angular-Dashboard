@@ -35,6 +35,11 @@ export class AddRecipeComponent implements OnInit {
   fruits = [];
   vegetables = [];
   herbs = [];
+
+  fileName;
+  file;
+  imageUrl: string | ArrayBuffer = "";
+
   public config: PerfectScrollbarConfigInterface = {};
   constructor(private toastr: ToastrService,private router:Router,private recipeS:RecipeService) { }
 
@@ -78,8 +83,8 @@ export class AddRecipeComponent implements OnInit {
   }
 
   AddRecipe() {
-    console.log(this.recipe)
-    this.recipeS.createRecipe(this.recipe).subscribe(res => {
+    // console.log(this.recipe,this.file)
+    this.recipeS.createRecipe(this.recipe,this.file).subscribe(res => {
       console.log(res)
       if (res.status == true) {
         this.toastr.success("Recipe Published!", 'Success!', { timeOut: 3000, closeButton: true, progressBar: true, progressAnimation: 'decreasing' });
@@ -88,6 +93,19 @@ export class AddRecipeComponent implements OnInit {
         this.toastr.error(res.message, 'Oops!', { timeOut: 3000, closeButton: true, progressBar: true, progressAnimation: 'decreasing' });
       }
     })
+  }
+
+  onChange(file: File) {
+    // console.log(file)
+    if (file) {
+      this.fileName = file.name;
+      this.file = file;
+      const reader = new FileReader();
+      reader.readAsDataURL(file);
+      reader.onload = event => {
+        this.imageUrl = reader.result;
+      };
+    }
   }
 
   addMealType(meal) {

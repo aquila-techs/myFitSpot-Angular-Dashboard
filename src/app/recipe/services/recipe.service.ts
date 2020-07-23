@@ -28,8 +28,25 @@ export class RecipeService {
     return this.http.get("/ingredient/all/herbs");
   }
 
-  createRecipe(body): Observable<any> {
-    return this.http.post("/recipe/create",body);
+  createRecipe(body, file: File): Observable<any> {
+
+    let formData = new FormData();
+    formData.append("img", file);
+    formData.append("nameEn", body.nameEn);
+    formData.append("nameNl", body.nameNl);
+    formData.append("recipeEn", body.recipeEn);
+    formData.append("recipeNl", body.recipeNl);
+    formData.append("recipeUrl", body.recipeUrl);
+    formData.append("videoUrl", body.videoUrl);
+    formData.append("specification", JSON.stringify(body['specification']));
+    formData.append("mealType", JSON.stringify(body['mealType']));
+    formData.append("carbs", JSON.stringify(body['carbs']));
+    formData.append("fats", JSON.stringify(body['fats']));
+    formData.append("fruits", JSON.stringify(body['fruits']));
+    formData.append("herbs", JSON.stringify(body['herbs']));
+    formData.append("vegetables", JSON.stringify(body['vegetables']));
+    formData.append("protein", JSON.stringify(body['protein']));
+    return this.http.post("/recipe/create",formData);
   }
 
   getUserRecipes(body): Observable<any> {

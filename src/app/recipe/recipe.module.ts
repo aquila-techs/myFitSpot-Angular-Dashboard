@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { FormsModule } from '@angular/forms';
+import { FormsModule , ReactiveFormsModule} from '@angular/forms';
 import { Routes, RouterModule } from '@angular/router';
 
 import { QuillModule } from 'ngx-quill';
@@ -13,16 +13,18 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { RecipeRoutingModule } from './recipe-routing.module';
 import { AddRecipeComponent } from './add-recipe/add-recipe.component';
 import { AllRecipesComponent } from './all-recipes/all-recipes.component';
+import { RecipeDetailComponent } from './recipe-detail/recipe-detail.component';
 
 
 @NgModule({
-  declarations: [AddRecipeComponent, AllRecipesComponent],
+  declarations: [AddRecipeComponent, AllRecipesComponent, RecipeDetailComponent],
   imports: [
     CommonModule,
     FormsModule,
     NgbModule,
     PerfectScrollbarModule,
     AccordionModule,
+    ReactiveFormsModule,
     RecipeRoutingModule,
     QuillModule.forRoot({
       customModules: [{
