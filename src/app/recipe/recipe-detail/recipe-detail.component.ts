@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit,ViewEncapsulation } from '@angular/core';
 import { ActivatedRoute, Router } from "@angular/router";
 import { RecipeService } from "../services/recipe.service";
 import { ToastrService } from 'ngx-toastr';
@@ -6,7 +6,8 @@ import { environment } from "src/environments/environment";
 @Component({
   selector: 'app-recipe-detail',
   templateUrl: './recipe-detail.component.html',
-  styleUrls: ['./recipe-detail.component.css']
+  styleUrls: ['./recipe-detail.component.css'],
+  encapsulation: ViewEncapsulation.None,
 })
 export class RecipeDetailComponent implements OnInit {
 

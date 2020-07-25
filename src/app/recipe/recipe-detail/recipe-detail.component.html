@@ -24,49 +24,103 @@
                                     <tr *ngIf="recipe?.mealType.length > 0">
                                         <td width="390">MealType</td>
                                         <td>
-                                            <button *ngFor="let m of recipe?.mealType" type="button" class="btn btn-xs btn-rounded btn-outline-secondary" style="margin:2px ">{{m}}</button> 
+                                             <div class="comment-text w-100">
+                                                <div class="comment-footer">
+                                                    <button *ngFor="let m of recipe?.mealType" type="button" class="btn btn-xs btn-rounded btn-outline-secondary" style="margin:2px ">{{m}}</button>
+                                                 </div>   
+                                            </div>
                                         </td>
                                     </tr>
                                     <tr *ngIf="recipe?.specification.length > 0">
                                         <td>Specification</td>
                                         <td>
-                                            <button *ngFor="let s of recipe?.specification" type="button" class="btn btn-xs btn-rounded btn-outline-secondary" style="margin:2px ">{{s}}</button> 
+                                            <div class="comment-text w-100">
+                                                <button *ngFor="let s of recipe?.specification" type="button" class="btn btn-xs btn-rounded btn-outline-secondary" style="margin:2px ">{{s}}</button> 
+                                            </div>
                                         </td>
                                     </tr>
                                     <tr *ngIf="recipe?.carbs.length > 0">
                                         <td>Carbs</td>
                                         <td>
-                                            <button *ngFor="let c of recipe?.carbs" type="button" class="btn btn-xs btn-rounded btn-outline-secondary" style="margin:2px ">{{c?.ingredient?.nameEn}}</button> 
+                                            <div class="comment-text w-100">
+                                                <div class="comment-footer">
+                                                    <button *ngFor="let c of recipe?.carbs" type="button" class="btn btn-xs btn-rounded btn-outline-secondary" style="margin:2px ">{{c?.ingredient?.nameEn}}</button> 
+                                                    <span class="action-icons float-right">
+                                                        <button class="btn btn-rounded btn-sm btn-outline-primary" type="button">
+                                                            <i class="ti-pencil-alt"></i></button>
+                                                    </span>
+                                                </div>
+                                            </div>
                                         </td>
                                     </tr>
                                     <tr *ngIf="recipe?.protein.length > 0">
                                         <td>Protein</td>
                                         <td>
-                                            <button *ngFor="let p of recipe?.protein" type="button" class="btn btn-xs btn-rounded btn-outline-secondary" style="margin:2px ">{{p?.ingredient?.nameEn}}</button> 
+                                            <div class="comment-text w-100">
+                                                <div class="comment-footer">
+                                                    <button *ngFor="let p of recipe?.protein" type="button" class="btn btn-xs btn-rounded btn-outline-secondary" style="margin:2px ">{{p?.ingredient?.nameEn}}</button> 
+                                                    <span class="action-icons float-right">
+                                                        <button class="btn btn-rounded btn-sm btn-outline-primary" type="button">
+                                                            <i class="ti-pencil-alt"></i></button>
+                                                    </span>
+                                                </div>
+                                            </div>
                                         </td>
                                     </tr>
                                     <tr *ngIf="recipe?.fats.length > 0">
                                         <td>Fats</td>
                                         <td>
-                                            <button *ngFor="let f of recipe?.fats" type="button" class="btn btn-xs btn-rounded btn-outline-secondary" style="margin:2px ">{{f?.ingredient?.nameEn}}</button> 
+                                            <div class="comment-text w-100">
+                                                <div class="comment-footer">
+                                                    <button *ngFor="let f of recipe?.fats" type="button" class="btn btn-xs btn-rounded btn-outline-secondary" style="margin:2px ">{{f?.ingredient?.nameEn}}</button> 
+                                                    <span class="action-icons float-right">
+                                                        <button class="btn btn-rounded btn-sm btn-outline-primary" type="button">
+                                                            <i class="ti-pencil-alt"></i></button>
+                                                    </span>
+                                                </div>
+                                            </div>
                                         </td>
                                     </tr>
                                     <tr *ngIf="recipe?.herbs.length > 0">
                                         <td>Herbs</td>
                                         <td>
-                                            <button *ngFor="let h of recipe?.herbs" type="button" class="btn btn-xs btn-rounded btn-outline-secondary" style="margin:2px ">{{h?.ingredient?.nameEn}}</button> 
+                                            <div class="comment-text w-100">
+                                                <div class="comment-footer">
+                                                    <button *ngFor="let h of recipe?.herbs" type="button" class="btn btn-xs btn-rounded btn-outline-secondary" style="margin:2px ">{{h?.ingredient?.nameEn}}</button> 
+                                                    <span class="action-icons float-right">
+                                                        <button class="btn btn-rounded btn-sm btn-outline-primary" type="button">
+                                                            <i class="ti-pencil-alt"></i></button>
+                                                    </span>
+                                                </div>
+                                            </div>
                                         </td>
                                     </tr>
                                     <tr *ngIf="recipe?.fruits.length > 0">
                                         <td>Fruits</td>
                                         <td>
-                                            <button *ngFor="let f of recipe?.fruits" type="button" class="btn btn-xs btn-rounded btn-outline-secondary" style="margin:2px ">{{f?.ingredient?.nameEn}}</button> 
+                                            <div class="comment-text w-100">
+                                                <div class="comment-footer">
+                                                    <button *ngFor="let f of recipe?.fruits" type="button" class="btn btn-xs btn-rounded btn-outline-secondary" style="margin:2px ">{{f?.ingredient?.nameEn}}</button> 
+                                                    <span class="action-icons float-right">
+                                                        <button class="btn btn-rounded btn-sm btn-outline-primary" type="button">
+                                                            <i class="ti-pencil-alt"></i></button>
+                                                    </span>
+                                                </div>
+                                            </div>
                                         </td>
                                     </tr>
                                     <tr *ngIf="recipe?.vegetables.length > 0">
                                         <td>Vegetables</td>
                                         <td>
-                                            <button *ngFor="let v of recipe?.vegetables" type="button" class="btn btn-xs btn-rounded btn-outline-secondary" style="margin:2px ">{{v?.ingredient?.nameEn}}</button> 
+                                            <div class="comment-text w-100">
+                                                <div class="comment-footer">
+                                                    <button *ngFor="let v of recipe?.vegetables" type="button" class="btn btn-xs btn-rounded btn-outline-secondary" style="margin:2px ">{{v?.ingredient?.nameEn}}</button> 
+                                                    <span class="action-icons float-right">
+                                                        <button class="btn btn-rounded btn-sm btn-outline-primary" type="button">
+                                                            <i class="ti-pencil-alt"></i></button>
+                                                    </span>
+                                                </div>
+                                            </div>
                                         </td>
                                     </tr>
                                     <tr *ngIf="recipe?.videoUrl">
