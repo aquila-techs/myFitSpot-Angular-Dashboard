@@ -39,3 +39,20 @@ File: scss
 
 // this is for the perfect scrollbar
 @import '~perfect-scrollbar/css/perfect-scrollbar.css';
+
+#navbarSupportedContent{
+  background-color: #141414 !important
+}
+.breadcrumb-item {
+  a{
+      color:  #68bc45;
+  }
+}
+
+.navbar-dark {
+  .navbar-nav {
+    .nav-link{
+    color: rgba(255, 255, 255, 1);
+    }
+  }
+}

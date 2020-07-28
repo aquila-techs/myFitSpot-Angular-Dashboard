@@ -107,3 +107,12 @@ label {
 #acrdn_panel_11 .e-acrdn-content{
   text-align: center;
 }
+.cus-btns{
+  background-color: #68bc45;
+  border-color: #68bc45;
+  color: #ffffff;
+  width: 48%;
+}
+.breadcrumb-item a{
+  color:  #68bc45;
+}

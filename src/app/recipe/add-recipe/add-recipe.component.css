@@ -85,6 +85,11 @@ label {
 .topbar{
     background-color: black;
 }
+.cus-btns{
+  background-color: #68bc45;
+  border-color: #68bc45;
+  color: #ffffff;
+}
 /* .my-group .form-control{
     width:50%;
 } */
