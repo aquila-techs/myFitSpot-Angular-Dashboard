@@ -1,22 +1,41 @@
 <div class="row">
     <div class="col-md-9">
-          <div class="form-group">
+      <div class="row">
+        <div class="col-sm-6">
+            <div class="form-group">
               <label>Add New Recipe</label>
-              <input type="text" class="form-control radius margin" [(ngModel)]="recipe.nameEn" id="nameEn" aria-describedby="nameEn" placeholder="Name Of Recipe(EN)">
-              <input type="text" class="form-control radius" [(ngModel)]="recipe.nameNl" id="nameNl" aria-describedby="nameNl" placeholder="Name Of Recipe(NL)">
+              <input type="text" class="form-control radius margin" [(ngModel)]="recipe.nameEn" id="nameEn"
+                aria-describedby="nameEn" placeholder="Name Of Recipe(EN)">
+            </div>
+        </div>
+        <div class="col-sm-6">
+            <div class="form-group">
+              <label class="invisible d-sm-block d-none">Add New Recipe</label>
+              <input type="text" class="form-control radius" [(ngModel)]="recipe.nameNl" id="nameNl" aria-describedby="nameNl"
+                placeholder="Name Of Recipe(NL)">
+            </div>
+        </div>
+          <div class="col-sm-12">
+            <div class="form-group">
+              <input type="Number" class="form-control radius" [(ngModel)]="recipe.time" id="time" aria-describedby="time"
+                placeholder="Time required to prepare (in min)">
+            </div>
           </div>
-
-          <div class="form-group">
-            <input type="Number" class="form-control radius" [(ngModel)]="recipe.time" id="time" aria-describedby="time" placeholder="Time required to prepare (in min)">
+         
+          <div class="col-sm-6">
+            <div class="form-group">
+              <input type="text" class="form-control radius" [(ngModel)]="recipe.videoUrl" id="videoUrl" aria-describedby="videoUrl"
+                placeholder="Add Video Url">
+            </div>
           </div>
-
-          <div class="form-group">
-            <input type="text" class="form-control radius" [(ngModel)]="recipe.videoUrl" id="videoUrl" aria-describedby="videoUrl" placeholder="Add Video Url">
+          <div class="col-sm-6">
+            <div class="form-group">
+              <input type="text" class="form-control radius" [(ngModel)]="recipe.recipeUrl" id="recipeUrl"
+                aria-describedby="recipeUrl" placeholder="Add Recipe Url">
+            </div>
           </div>
-
-          <div class="form-group">
-            <input type="text" class="form-control radius" [(ngModel)]="recipe.recipeUrl" id="recipeUrl" aria-describedby="recipeUrl" placeholder="Add Recipe Url">
-          </div>
+      </div>
+        
           <div class="form-group text-center">
             <label>OR</label>
           </div>
@@ -75,7 +94,7 @@
     </div>
       <div class="col-md-3">
       <div class="form-group m-t-30 justify-content-end">
-              <button type="button" class="btn btn-info w-100 radius" (click)="AddRecipe()" >Publish</button>
+              <button type="button" class="btn cus-btns  w-100 radius" (click)="AddRecipe()" >Publish</button>
       </div>
         <!-- Categories -->
         <div class="m-t-10">
@@ -186,7 +205,7 @@
                                         <select id="carbs" class="selectpicker form-control" name="carb" [(ngModel)]="carb.ingredient" >
                                                     <option *ngFor="let c of carbs" [ngValue]="c">{{c?.nameEn}}</option>
                                                 </select> 
-                                        <span class="input-group-btn"><button class="btn btn-outline-secondary" type="submit" (click)="addCarb(myForm)">Add!</button></span>
+                                        <span class="input-group-btn"><button class="btn add-grams " type="submit" (click)="addCarb(myForm)">Add</button></span>
                             
                                     </div>
                                   </div>
@@ -218,7 +237,7 @@
                                           <select id="fruits" class="selectpicker form-control" name="fruit" [(ngModel)]="fruit.ingredient" >
                                                       <option *ngFor="let f of fruits" [ngValue]="f">{{f?.nameEn}}</option>
                                                   </select> 
-                                          <span class="input-group-btn"><button class="btn btn-outline-secondary" type="submit" (click)="addfruit(myForm)">Add!</button></span>
+                                          <span class="input-group-btn"><button class="btn add-grams" type="submit" (click)="addfruit(myForm)">Add</button></span>
                               
                                       </div>
                                     </div>
@@ -254,7 +273,7 @@
                                         <select id="vegetable" class="selectpicker form-control" name="vegetable" [(ngModel)]="vegetable.ingredient">
                                                     <option *ngFor="let v of vegetables" [ngValue]="v">{{v?.nameEn}}</option>
                                                 </select> 
-                                        <span class="input-group-btn"><button class="btn btn-outline-secondary" type="submit" (click)="addvegetable(myForm)">Add!</button></span>
+                                        <span class="input-group-btn"><button class="btn add-grams" type="submit" (click)="addvegetable(myForm)">Add</button></span>
                             
                                     </div>
                                 </div>
@@ -286,7 +305,7 @@
                                             <select id="herb" class="selectpicker form-control" name="herb" [(ngModel)]="herb.ingredient" >
                                                         <option *ngFor="let h of herbs" [ngValue]="h">{{h?.nameEn}}</option>
                                             </select> 
-                                            <span class="input-group-btn"><button class="btn btn-outline-secondary" type="submit" (click)="addherb(myForm)">Add!</button></span>
+                                            <span class="input-group-btn"><button class="btn add-grams" type="submit" (click)="addherb(myForm)">Add</button></span>
                                 
                                         </div>
                                     </div>
@@ -318,7 +337,7 @@
                                             <select id="protein" class="selectpicker form-control" name="protein" [(ngModel)]="prot.ingredient" >
                                                         <option *ngFor="let p of protein" [ngValue]="p">{{p?.nameEn}}</option>
                                             </select> 
-                                            <span class="input-group-btn"><button class="btn btn-outline-secondary" type="submit" (click)="addprotein(myForm)">Add!</button></span>
+                                            <span class="input-group-btn"><button class="btn add-grams" type="submit" (click)="addprotein(myForm)">Add</button></span>
                                 
                                         </div>
                                     </div>
@@ -350,7 +369,7 @@
                                                 <select id="fat" class="selectpicker form-control" name="fat" [(ngModel)]="fat.ingredient" >
                                                             <option *ngFor="let f of fats" [ngValue]="f">{{f?.nameEn}}</option>
                                                 </select> 
-                                                <span class="input-group-btn"><button class="btn btn-outline-secondary" type="submit" (click)="addfat(myForm)">Add!</button></span>
+                                                <span class="input-group-btn"><button class="btn add-grams" type="submit" (click)="addfat(myForm)">Add</button></span>
                                     
                                             </div>
                                         </div>
