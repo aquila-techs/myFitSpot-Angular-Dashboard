@@ -8,6 +8,8 @@ import Counter from './counter';
 
 import { PerfectScrollbarModule } from 'ngx-perfect-scrollbar';
 import { AccordionModule } from '@syncfusion/ej2-angular-navigations';
+import { NgMultiSelectDropDownModule } from 'ng-multiselect-dropdown';
+
 
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { RecipeRoutingModule } from './recipe-routing.module';
@@ -25,6 +27,7 @@ import { RecipeDetailComponent } from './recipe-detail/recipe-detail.component';
     PerfectScrollbarModule,
     AccordionModule,
     ReactiveFormsModule,
+    NgMultiSelectDropDownModule,
     RecipeRoutingModule,
     QuillModule.forRoot({
       customModules: [{

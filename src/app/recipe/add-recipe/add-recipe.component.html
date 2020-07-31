@@ -241,9 +241,13 @@
                         <ng-template #content>
                             <form #myForm="ngForm">
                                 <div class="card-body">
-                                    <button *ngFor="let c of recipe.vegetables" type="button" class="btn btn-xs btn-rounded btn-outline-secondary" style="margin:2px ">
+                                  <button *ngFor="let c of recipe.vegetables" class="alert alert-success alert-dismissible fade in">
+                                    <a class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                                    {{c?.ingredient?.nameEn}} <span class="badge badge-dark">{{c?.grams}}</span>
+                                  </button>
+                                    <!-- <button *ngFor="let c of recipe.vegetables" type="button" class="btn btn-xs btn-rounded btn-outline-secondary" style="margin:2px ">
                                         {{c?.ingredient?.nameEn}} <span class="badge badge-dark">{{c?.grams}}</span>
-                                    </button>
+                                    </button> -->
                                     <div class="input-group my-group">
                                         <!-- <span [(ngModel)]="tmpVal.name = c.nameEn" ></span> -->
                                         <input type="Number" class="form-control" name="grams" [(ngModel)]="vegetable.grams" placeholder="grams">

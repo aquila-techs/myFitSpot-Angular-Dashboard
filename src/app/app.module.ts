@@ -23,6 +23,7 @@ import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { LocationStrategy,HashLocationStrategy } from '@angular/common';
 
+
 //Components
 import { AppComponent } from './app.component';
 import { NavigationComponent } from './shared/header-navigation/navigation.component';

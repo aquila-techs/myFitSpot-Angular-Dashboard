@@ -12,6 +12,7 @@ import { NgForm } from '@angular/forms';
   templateUrl: './add-recipe.component.html',
   styleUrls: ['./add-recipe.component.css']
 })
+  
 export class AddRecipeComponent implements OnInit {
 
   recipe = {

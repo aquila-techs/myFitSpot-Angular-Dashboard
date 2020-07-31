@@ -46,7 +46,7 @@
                                                 <div class="comment-footer">
                                                     <button *ngFor="let c of recipe?.carbs" type="button" class="btn btn-xs btn-rounded btn-outline-secondary" style="margin:2px ">{{c?.ingredient?.nameEn}}</button> 
                                                     <span class="action-icons float-right">
-                                                        <button class="btn btn-rounded btn-sm btn-outline-primary" type="button">
+                                                        <button class="btn btn-rounded btn-sm btn-outline-primary" (click)="EditCarbs(editCarb)" type="button">
                                                             <i class="ti-pencil-alt"></i></button>
                                                     </span>
                                                 </div>
@@ -139,3 +139,45 @@
     </div>
     <!-- Column -->
 </div>
+
+
+<ng-template #editCarb let-modal>
+    <div class="modal-header">
+      <h4 class="modal-title">Edit Carbs</h4>
+      <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <div class="modal-body">
+      <form>
+        
+        <div class="input-group my-group">
+            <!-- <span [(ngModel)]="tmpVal.name = c.nameEn" ></span> -->
+          
+                <input type="Number" class="form-control" name="grams" [(ngModel)]="carb.grams" placeholder="grams">
+                <div class="dropdown ">
+                    <input type="text" class="form-control" (keyup)="SearchCarbs($event)" name="searchCarbs" [(ngModel)]="searchField" (click)="toggle()" placeholder="Search Carbs.."  >
+                    <!-- <button (click)="myFunction()" class="dropbtn">Dropdown</button> -->
+                    <div *ngIf="searchField == ''" id="myDropdown" class="dropdown-content">
+                    <!-- <input type="text" placeholder="Search.." id="myInput"> -->
+                        <a *ngFor="let c of carbs" (click)="selectedCarb(c)" >{{c?.nameEn}}</a>
+                    </div>
+                    <div *ngIf="searchField != ''" id="myDropdown" class="dropdown-content">
+                        <!-- <input type="text" placeholder="Search.." id="myInput"> -->
+                            <a *ngFor="let c of search" (click)="selectedCarb(c)" >{{c?.nameEn}}</a>
+                    </div>
+                </div>
+          <span class="input-group-btn"><button class="btn btn-outline-secondary" type="submit" (click)="addCarb()">Add!</button></span>
+        </div>
+      </form>
+    </div>
+    <div class="modal-footer">
+      <button type="button" class="btn btn-inverse" (click)="modal.dismiss('Cross click')">
+        Close
+      </button>
+      <button type="button" class="btn btn-info">
+        Add
+      </button>
+    </div>
+  </ng-template>
+  
