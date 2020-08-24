@@ -40,6 +40,7 @@ export class RecipeService {
     formData.append("videoUrl", body.videoUrl);
     formData.append("specification", JSON.stringify(body['specification']));
     formData.append("mealType", JSON.stringify(body['mealType']));
+    formData.append("recipeType", JSON.stringify(body['recipeType']));
     formData.append("carbs", JSON.stringify(body['carbs']));
     formData.append("fats", JSON.stringify(body['fats']));
     formData.append("fruits", JSON.stringify(body['fruits']));

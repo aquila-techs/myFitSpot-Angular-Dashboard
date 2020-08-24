@@ -17,10 +17,11 @@ export class AddRecipeComponent implements OnInit {
 
   recipe = {
     nameEn: "", nameNl: "", recipeEn: "", recipeNl: "", time: "",videoUrl:"", recipeUrl: "", mealType: [],specification:[],
-    carbs: [], protein: [], fats: [], fruits: [], vegetables: [], herbs: []
+    carbs: [], protein: [], fats: [], fruits: [], vegetables: [], herbs: [],recipeType:[]
   }
 
   mType = ["Vegan", "Vegetarian", "Ovo Vegetarian", "Lacto-ovo vegetarian"];
+  rType = ["Breakfast", "lunch", "Snack", "Dinner"];
   specification = ["Glutenfree", "Lactosefree", "High crab ", "High fat", "High protein"];
   ingredient = {} as any;
   grams = ""; 
@@ -86,7 +87,7 @@ export class AddRecipeComponent implements OnInit {
   AddRecipe() {
     // console.log(this.recipe,this.file)
     this.recipeS.createRecipe(this.recipe,this.file).subscribe(res => {
-      console.log(res)
+      // console.log(res)
       if (res.status == true) {
         this.toastr.success("Recipe Published!", 'Success!', { timeOut: 3000, closeButton: true, progressBar: true, progressAnimation: 'decreasing' });
         setTimeout(()=>this.router.navigateByUrl('/recipes/all'),1000)
@@ -110,7 +111,7 @@ export class AddRecipeComponent implements OnInit {
   }
 
   addMealType(meal) {
-    console.log(meal)
+    // console.log(meal)
     let check = this.recipe.mealType.includes(meal);
     // console.log("Check:",check)
     if (check === true) {
@@ -121,6 +122,20 @@ export class AddRecipeComponent implements OnInit {
       // console.log("Meal from false:",this.recipe.mealType)
     }
   }
+
+  addRecipeType(meal) {
+    console.log(meal)
+    let check = this.recipe.recipeType.includes(meal);
+    // console.log("Check:",check)
+    if (check === true) {
+      this.recipe.recipeType = this.recipe.recipeType.filter(ele => ele != meal);
+      // console.log("Meal from True:",this.recipe.recipeType);
+    } else {
+      this.recipe.recipeType.push(meal);
+      // console.log("Meal from false:",this.recipe.recipeType)
+    }
+  }
+
      addSpecification(spec) {
         let check = this.recipe.specification.includes(spec);
         if (check === true) {

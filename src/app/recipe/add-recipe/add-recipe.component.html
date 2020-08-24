@@ -1,60 +1,55 @@
 <div class="row">
     <div class="col-md-9">
-      <div class="row">
-        <div class="col-sm-6">
-            <div class="form-group">
-              <label>Add New Recipe</label>
-              <input type="text" class="form-control radius margin" [(ngModel)]="recipe.nameEn" id="nameEn"
-                aria-describedby="nameEn" placeholder="Name Of Recipe(EN)">
+        <div class="row">
+            <div class="col-sm-6">
+                <div class="form-group">
+                    <label>Add New Recipe</label>
+                    <input type="text" class="form-control radius margin" [(ngModel)]="recipe.nameEn" id="nameEn" aria-describedby="nameEn" placeholder="Name Of Recipe(EN)">
+                </div>
+            </div>
+            <div class="col-sm-6">
+                <div class="form-group">
+                    <label class="invisible d-sm-block d-none">Add New Recipe</label>
+                    <input type="text" class="form-control radius" [(ngModel)]="recipe.nameNl" id="nameNl" aria-describedby="nameNl" placeholder="Name Of Recipe(NL)">
+                </div>
+            </div>
+            <div class="col-sm-12">
+                <div class="form-group">
+                    <input type="Number" class="form-control radius" [(ngModel)]="recipe.time" id="time" aria-describedby="time" placeholder="Time required to prepare (in min)">
+                </div>
+            </div>
+
+            <div class="col-sm-6">
+                <div class="form-group">
+                    <input type="text" class="form-control radius" [(ngModel)]="recipe.videoUrl" id="videoUrl" aria-describedby="videoUrl" placeholder="Add Video Url">
+                </div>
+            </div>
+            <div class="col-sm-6">
+                <div class="form-group">
+                    <input type="text" class="form-control radius" [(ngModel)]="recipe.recipeUrl" id="recipeUrl" aria-describedby="recipeUrl" placeholder="Add Recipe Url">
+                </div>
             </div>
         </div>
-        <div class="col-sm-6">
-            <div class="form-group">
-              <label class="invisible d-sm-block d-none">Add New Recipe</label>
-              <input type="text" class="form-control radius" [(ngModel)]="recipe.nameNl" id="nameNl" aria-describedby="nameNl"
-                placeholder="Name Of Recipe(NL)">
-            </div>
-        </div>
-          <div class="col-sm-12">
-            <div class="form-group">
-              <input type="Number" class="form-control radius" [(ngModel)]="recipe.time" id="time" aria-describedby="time"
-                placeholder="Time required to prepare (in min)">
-            </div>
-          </div>
-         
-          <div class="col-sm-6">
-            <div class="form-group">
-              <input type="text" class="form-control radius" [(ngModel)]="recipe.videoUrl" id="videoUrl" aria-describedby="videoUrl"
-                placeholder="Add Video Url">
-            </div>
-          </div>
-          <div class="col-sm-6">
-            <div class="form-group">
-              <input type="text" class="form-control radius" [(ngModel)]="recipe.recipeUrl" id="recipeUrl"
-                aria-describedby="recipeUrl" placeholder="Add Recipe Url">
-            </div>
-          </div>
-      </div>
-        
-          <div class="form-group text-center">
+
+        <div class="form-group text-center">
             <label>OR</label>
-          </div>
-          
-          <div class="card radius">
-              <div class="card-body radius">
-                    <div class="margin">
-                        <quill-editor [styles]="{height: '300px'}" [(ngModel)]="recipe.recipeEn" (onEditorCreated)="created($event)" placeholder="Recipe(EN)"></quill-editor>
-                    </div>
-                    <div>
-                        <quill-editor [styles]="{height: '300px'}" [(ngModel)]="recipe.recipeNl" (onEditorCreated)="created($event)" placeholder="Recipe(Nl)"></quill-editor>    
-                    </div>
- 
-              </div>
-              
-          </div>
-          
-          
-          <!-- <ejs-accordion >
+        </div>
+
+        <div class="card radius">
+            <div class="card-body radius">
+                <div class="margin">
+                    <quill-editor [styles]="{height: '300px'}" [(ngModel)]="recipe.recipeEn" (onEditorCreated)="created($event)" placeholder="Recipe(EN)"></quill-editor>
+                </div>
+                <div>
+                    <quill-editor [styles]="{height: '300px'}" [(ngModel)]="recipe.recipeNl" (onEditorCreated)="created($event)" placeholder="Recipe(Nl)"></quill-editor>
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- <ejs-accordion >
               <e-accordionitems>
                 <e-accordionitem expanded='true'>
                   <ng-template  #header>
@@ -68,8 +63,8 @@
                 </e-accordionitem>
               </e-accordionitems>
           </ejs-accordion> -->
-  
-          <!-- <ngb-accordion class="radius" activeIds="custom-panel-1">
+
+        <!-- <ngb-accordion class="radius" activeIds="custom-panel-1">
               <ngb-panel id="custom-panel-1">
                 <ng-template ngbPanelHeader let-opened="opened">
                   <div class="d-flex align-items-left justify-content-between">
@@ -92,80 +87,109 @@
   
         </ngb-accordion> -->
     </div>
-      <div class="col-md-3">
-      <div class="form-group m-t-30 justify-content-end">
-              <button type="button" class="btn cus-btns  w-100 radius" (click)="AddRecipe()" >Publish</button>
-      </div>
+    <div class="col-md-3">
+        <div class="form-group m-t-30 justify-content-end">
+            <button type="button" class="btn cus-btns  w-100 radius" (click)="AddRecipe()">Publish</button>
+        </div>
         <!-- Categories -->
         <div class="m-t-10">
-          <ejs-accordion >
-              <e-accordionitems>
-                <e-accordionitem expanded='true'>
-                  <ng-template  #header>
-                    <div>Meal Type</div>
-                  </ng-template>
-                  <ng-template #content>
-                      <div class="todo-widget scrollable" style="height:200px;" [perfectScrollbar]="config">
-                          <ul class="list-task todo-list list-group m-b-0" data-role="tasklist">
-                              <li class="list-group-item todo-item" *ngFor="let m of mType" data-role="task">
-                                  <div class="form-check form-check-inline">
-                                      <div class="custom-control custom-checkbox">
-                                        <input (click)="addMealType(m)" name="block"class="custom-control-input" id="'b-'{{m}}" type="checkbox" />
-                                        <label class="custom-control-label" for="'b-'{{m}}">{{m}}</label>
-                                      </div>
-                                  </div>
-                              </li>
-                          </ul>
-                      </div>
-                  </ng-template>
-                </e-accordionitem>
-              </e-accordionitems>
-          </ejs-accordion>
-        </div>    
-  
-          <!-- Categories End -->
-                    <!-- Calories -->
-                    <div class="m-t-10">
-                      <ejs-accordion >
-                          <e-accordionitems>
-                            <e-accordionitem expanded='true'>
-                              <ng-template  #header>
-                                <div>Specifications</div>
-                              </ng-template>
-                              <ng-template #content>
-                                <div class="todo-widget scrollable" style="height:200px;" [perfectScrollbar]="config">
-                                  <ul class="list-task todo-list list-group m-b-0" data-role="tasklist">
-                                      <li class="list-group-item todo-item" *ngFor="let s of specification" data-role="task">
-                                          <div class="form-check form-check-inline">
-                                              <div class="custom-control custom-checkbox">
-                                                <input (click)="addSpecification(s)" name="block"class="custom-control-input" id="'b-'{{s}}" type="checkbox" />
-                                                <label class="custom-control-label" for="'b-'{{s}}">{{s}}</label>
-                                              </div>
-                                          </div>
-                                      </li>
-                                  </ul>
-                              </div>
-                              </ng-template>
-                            </e-accordionitem>
-                          </e-accordionitems>
-                      </ejs-accordion>
-                    </div>    
-                  <!-- Calories End -->
-
-
-                              <!-- Feature Image -->
-
-            <div class="m-t-10">
-                <ejs-accordion >
-                    <e-accordionitems>
-                      <e-accordionitem expanded='true'>
-                        <ng-template  #header>
-                          <div>Feature Image</div>
+            <ejs-accordion>
+                <e-accordionitems>
+                    <e-accordionitem expanded='true'>
+                        <ng-template #header>
+                            <div>Meal Type</div>
                         </ng-template>
                         <ng-template #content>
-                          <div class="upload-btn-wrapper pointer">
-                            <button style="padding: 0; border: 0; background: transparent;"
-                                class="btn1">
+                            <div class="todo-widget scrollable" style="height:200px;" [perfectScrollbar]="config">
+                                <ul class="list-task todo-list list-group m-b-0" data-role="tasklist">
+                                    <li class="list-group-item todo-item" *ngFor="let m of mType" data-role="task">
+                                        <div class="form-check form-check-inline">
+                                            <div class="custom-control custom-checkbox">
+                                                <input (click)="addMealType(m)" name="block" class="custom-control-input" id="'b-'{{m}}" type="checkbox" />
+                                                <label class="custom-control-label" for="'b-'{{m}}">{{m}}</label>
+                                            </div>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </ng-template>
+                    </e-accordionitem>
+                </e-accordionitems>
+            </ejs-accordion>
+        </div>
+
+        <!-- Categories End -->
+
+        <!-- Categories -->
+        <div class="m-t-10">
+            <ejs-accordion>
+                <e-accordionitems>
+                    <e-accordionitem expanded='true'>
+                        <ng-template #header>
+                            <div>Recipe Type</div>
+                        </ng-template>
+                        <ng-template #content>
+                            <div class="todo-widget scrollable" style="height:200px;" [perfectScrollbar]="config">
+                                <ul class="list-task todo-list list-group m-b-0" data-role="tasklist">
+                                    <li class="list-group-item todo-item" *ngFor="let m of rType" data-role="task">
+                                        <div class="form-check form-check-inline">
+                                            <div class="custom-control custom-checkbox">
+                                                <input (click)="addRecipeType(m)" name="block" class="custom-control-input" id="'b-'{{m}}" type="checkbox" />
+                                                <label class="custom-control-label" for="'b-'{{m}}">{{m}}</label>
+                                            </div>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </ng-template>
+                    </e-accordionitem>
+                </e-accordionitems>
+            </ejs-accordion>
+        </div>
+
+        <!-- Categories End -->
+
+        <!-- Calories -->
+        <div class="m-t-10">
+            <ejs-accordion>
+                <e-accordionitems>
+                    <e-accordionitem expanded='true'>
+                        <ng-template #header>
+                            <div>Specifications</div>
+                        </ng-template>
+                        <ng-template #content>
+                            <div class="todo-widget scrollable" style="height:200px;" [perfectScrollbar]="config">
+                                <ul class="list-task todo-list list-group m-b-0" data-role="tasklist">
+                                    <li class="list-group-item todo-item" *ngFor="let s of specification" data-role="task">
+                                        <div class="form-check form-check-inline">
+                                            <div class="custom-control custom-checkbox">
+                                                <input (click)="addSpecification(s)" name="block" class="custom-control-input" id="'b-'{{s}}" type="checkbox" />
+                                                <label class="custom-control-label" for="'b-'{{s}}">{{s}}</label>
+                                            </div>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </ng-template>
+                    </e-accordionitem>
+                </e-accordionitems>
+            </ejs-accordion>
+        </div>
+        <!-- Calories End -->
+
+
+        <!-- Feature Image -->
+
+        <div class="m-t-10">
+            <ejs-accordion>
+                <e-accordionitems>
+                    <e-accordionitem expanded='true'>
+                        <ng-template #header>
+                            <div>Feature Image</div>
+                        </ng-template>
+                        <ng-template #content>
+                            <div class="upload-btn-wrapper pointer">
+                                <button style="padding: 0; border: 0; background: transparent;" class="btn1">
                                 <div
                                     style="flex-direction: column; border: 2px dashed #999; background-color: transparent; width: 200px; height: 100px; display: flex; justify-content: center; align-items: center;">
                                     <img *ngIf="imageUrl"
@@ -177,213 +201,213 @@
                                             <span *ngIf="!imageUrl" style="z-index: 2; color: #444; font-weight: 20px;" class="text-muted">Upload Feature Image</span>
                                       </div>
                             </button>
-                          <input type="file" name="banner" #fileInput (change)="onChange(fileInput.files[0])" class="custom-file-input" id="banner">                              
-                        </div>
+                                <input type="file" name="banner" #fileInput (change)="onChange(fileInput.files[0])" class="custom-file-input" id="banner">
+                            </div>
                         </ng-template>
-                      </e-accordionitem>
-                    </e-accordionitems>
-                </ejs-accordion>
-              </div>
+                    </e-accordionitem>
+                </e-accordionitems>
+            </ejs-accordion>
+        </div>
 
-            <!-- Carbs -->
-               <div class="m-t-10">
-                  <ejs-accordion >
-                      <e-accordionitems>
-                        <e-accordionitem expanded='true'>
-                          <ng-template  #header>
+        <!-- Carbs -->
+        <div class="m-t-10">
+            <ejs-accordion>
+                <e-accordionitems>
+                    <e-accordionitem expanded='true'>
+                        <ng-template #header>
                             <div>Carbs</div>
-                          </ng-template>
-                          <ng-template #content>
+                        </ng-template>
+                        <ng-template #content>
                             <form #myForm="ngForm">
-                                  <div class="card-body">
-                                   <button *ngFor="let c of recipe.carbs" type="button" class="btn btn-xs btn-rounded btn-outline-secondary" style="margin:2px ">
+                                <div class="card-body">
+                                    <button *ngFor="let c of recipe.carbs" type="button" class="btn btn-xs btn-rounded btn-outline-secondary" style="margin:2px ">
                                         {{c?.ingredient?.nameEn}} <span class="badge badge-dark">{{c?.grams}}</span>
                                       </button>
                                     <div class="input-group my-group">
                                         <!-- <span [(ngModel)]="tmpVal.name = c.nameEn" ></span> -->
                                         <input type="Number" class="form-control" name="grams" [(ngModel)]="carb.grams" placeholder="grams">
-                                        <select id="carbs" class="selectpicker form-control" name="carb" [(ngModel)]="carb.ingredient" >
+                                        <select id="carbs" class="selectpicker form-control" name="carb" [(ngModel)]="carb.ingredient">
                                                     <option *ngFor="let c of carbs" [ngValue]="c">{{c?.nameEn}}</option>
-                                                </select> 
+                                                </select>
                                         <span class="input-group-btn"><button class="btn add-grams " type="submit" (click)="addCarb(myForm)">Add</button></span>
-                            
-                                    </div>
-                                  </div>
-                            </form>   
-                          </ng-template>
-                        </e-accordionitem>
-                      </e-accordionitems>
-                  </ejs-accordion>
-                </div>    
-              <!-- Carbs End -->
 
-                 <!-- Fruits -->
-                 <div class="m-t-10">
-                    <ejs-accordion >
-                        <e-accordionitems>
-                          <e-accordionitem expanded='true'>
-                            <ng-template  #header>
-                              <div>Fruits</div>
-                            </ng-template>
-                            <ng-template #content>
-                              <form #myForm="ngForm">
-                                    <div class="card-body">
-                                     <button *ngFor="let c of recipe.fruits" type="button" class="btn btn-xs btn-rounded btn-outline-secondary" style="margin:2px ">
+                                    </div>
+                                </div>
+                            </form>
+                        </ng-template>
+                    </e-accordionitem>
+                </e-accordionitems>
+            </ejs-accordion>
+        </div>
+        <!-- Carbs End -->
+
+        <!-- Fruits -->
+        <div class="m-t-10">
+            <ejs-accordion>
+                <e-accordionitems>
+                    <e-accordionitem expanded='true'>
+                        <ng-template #header>
+                            <div>Fruits</div>
+                        </ng-template>
+                        <ng-template #content>
+                            <form #myForm="ngForm">
+                                <div class="card-body">
+                                    <button *ngFor="let c of recipe.fruits" type="button" class="btn btn-xs btn-rounded btn-outline-secondary" style="margin:2px ">
                                           {{c?.ingredient?.nameEn}} <span class="badge badge-dark">{{c?.grams}}</span>
                                         </button>
-                                      <div class="input-group my-group">
-                                          <!-- <span [(ngModel)]="tmpVal.name = c.nameEn" ></span> -->
-                                          <input type="Number" class="form-control" name="grams" [(ngModel)]="fruit.grams" placeholder="grams">
-                                          <select id="fruits" class="selectpicker form-control" name="fruit" [(ngModel)]="fruit.ingredient" >
+                                    <div class="input-group my-group">
+                                        <!-- <span [(ngModel)]="tmpVal.name = c.nameEn" ></span> -->
+                                        <input type="Number" class="form-control" name="grams" [(ngModel)]="fruit.grams" placeholder="grams">
+                                        <select id="fruits" class="selectpicker form-control" name="fruit" [(ngModel)]="fruit.ingredient">
                                                       <option *ngFor="let f of fruits" [ngValue]="f">{{f?.nameEn}}</option>
-                                                  </select> 
-                                          <span class="input-group-btn"><button class="btn add-grams" type="submit" (click)="addfruit(myForm)">Add</button></span>
-                              
-                                      </div>
-                                    </div>
-                              </form>   
-                            </ng-template>
-                          </e-accordionitem>
-                        </e-accordionitems>
-                    </ejs-accordion>
-                  </div>    
-                <!-- Fruits End -->
+                                                  </select>
+                                        <span class="input-group-btn"><button class="btn add-grams" type="submit" (click)="addfruit(myForm)">Add</button></span>
 
-                <!-- Vegetable -->
-                <div class="m-t-10">
-                <ejs-accordion >
-                    <e-accordionitems>
-                        <e-accordionitem expanded='true'>
-                        <ng-template  #header>
+                                    </div>
+                                </div>
+                            </form>
+                        </ng-template>
+                    </e-accordionitem>
+                </e-accordionitems>
+            </ejs-accordion>
+        </div>
+        <!-- Fruits End -->
+
+        <!-- Vegetable -->
+        <div class="m-t-10">
+            <ejs-accordion>
+                <e-accordionitems>
+                    <e-accordionitem expanded='true'>
+                        <ng-template #header>
                             <div>Vegetables</div>
                         </ng-template>
                         <ng-template #content>
                             <form #myForm="ngForm">
                                 <div class="card-body">
-                                  <button *ngFor="let c of recipe.vegetables" class="alert alert-success alert-dismissible fade in">
+                                    <!-- <button *ngFor="let c of recipe.vegetables" class="alert alert-success alert-dismissible fade in">
                                     <a class="close" data-dismiss="alert" aria-label="close">&times;</a>
                                     {{c?.ingredient?.nameEn}} <span class="badge badge-dark">{{c?.grams}}</span>
-                                  </button>
-                                    <!-- <button *ngFor="let c of recipe.vegetables" type="button" class="btn btn-xs btn-rounded btn-outline-secondary" style="margin:2px ">
+                                  </button> -->
+                                    <button *ngFor="let c of recipe.vegetables" type="button" class="btn btn-xs btn-rounded btn-outline-secondary" style="margin:2px ">
                                         {{c?.ingredient?.nameEn}} <span class="badge badge-dark">{{c?.grams}}</span>
-                                    </button> -->
+                                    </button>
                                     <div class="input-group my-group">
                                         <!-- <span [(ngModel)]="tmpVal.name = c.nameEn" ></span> -->
                                         <input type="Number" class="form-control" name="grams" [(ngModel)]="vegetable.grams" placeholder="grams">
                                         <select id="vegetable" class="selectpicker form-control" name="vegetable" [(ngModel)]="vegetable.ingredient">
                                                     <option *ngFor="let v of vegetables" [ngValue]="v">{{v?.nameEn}}</option>
-                                                </select> 
+                                                </select>
                                         <span class="input-group-btn"><button class="btn add-grams" type="submit" (click)="addvegetable(myForm)">Add</button></span>
-                            
+
                                     </div>
                                 </div>
-                            </form>   
+                            </form>
                         </ng-template>
-                        </e-accordionitem>
-                    </e-accordionitems>
-                </ejs-accordion>
-                </div>    
-            <!-- Vegetable End -->
+                    </e-accordionitem>
+                </e-accordionitems>
+            </ejs-accordion>
+        </div>
+        <!-- Vegetable End -->
 
-                    <!-- Herb -->
-                    <div class="m-t-10">
-                    <ejs-accordion >
-                        <e-accordionitems>
-                            <e-accordionitem expanded='true'>
-                            <ng-template  #header>
-                                <div>Herbs</div>
-                            </ng-template>
-                            <ng-template #content>
-                                <form #myForm="ngForm">
-                                    <div class="card-body">
-                                        <button *ngFor="let c of recipe.herbs" type="button" class="btn btn-xs btn-rounded btn-outline-secondary" style="margin:2px ">
+        <!-- Herb -->
+        <div class="m-t-10">
+            <ejs-accordion>
+                <e-accordionitems>
+                    <e-accordionitem expanded='true'>
+                        <ng-template #header>
+                            <div>Herbs</div>
+                        </ng-template>
+                        <ng-template #content>
+                            <form #myForm="ngForm">
+                                <div class="card-body">
+                                    <button *ngFor="let c of recipe.herbs" type="button" class="btn btn-xs btn-rounded btn-outline-secondary" style="margin:2px ">
                                             {{c?.ingredient?.nameEn}} <span class="badge badge-dark">{{c?.grams}}</span>
                                         </button>
-                                        <div class="input-group my-group">
-                                            <!-- <span [(ngModel)]="tmpVal.name = c.nameEn" ></span> -->
-                                            <input type="Number" class="form-control" name="grams" [(ngModel)]="herb.grams" placeholder="grams">
-                                            <select id="herb" class="selectpicker form-control" name="herb" [(ngModel)]="herb.ingredient" >
+                                    <div class="input-group my-group">
+                                        <!-- <span [(ngModel)]="tmpVal.name = c.nameEn" ></span> -->
+                                        <input type="Number" class="form-control" name="grams" [(ngModel)]="herb.grams" placeholder="grams">
+                                        <select id="herb" class="selectpicker form-control" name="herb" [(ngModel)]="herb.ingredient">
                                                         <option *ngFor="let h of herbs" [ngValue]="h">{{h?.nameEn}}</option>
-                                            </select> 
-                                            <span class="input-group-btn"><button class="btn add-grams" type="submit" (click)="addherb(myForm)">Add</button></span>
-                                
-                                        </div>
-                                    </div>
-                                </form>   
-                            </ng-template>
-                            </e-accordionitem>
-                        </e-accordionitems>
-                    </ejs-accordion>
-                    </div>    
-                <!-- Herb End -->
+                                            </select>
+                                        <span class="input-group-btn"><button class="btn add-grams" type="submit" (click)="addherb(myForm)">Add</button></span>
 
-                   <!-- Protein -->
-                   <div class="m-t-10">
-                    <ejs-accordion >
-                        <e-accordionitems>
-                            <e-accordionitem expanded='true'>
-                            <ng-template  #header>
-                                <div>Protein</div>
-                            </ng-template>
-                            <ng-template #content>
-                                <form #myForm="ngForm">
-                                    <div class="card-body">
-                                        <button *ngFor="let c of recipe.protein" type="button" class="btn btn-xs btn-rounded btn-outline-secondary" style="margin:2px ">
+                                    </div>
+                                </div>
+                            </form>
+                        </ng-template>
+                    </e-accordionitem>
+                </e-accordionitems>
+            </ejs-accordion>
+        </div>
+        <!-- Herb End -->
+
+        <!-- Protein -->
+        <div class="m-t-10">
+            <ejs-accordion>
+                <e-accordionitems>
+                    <e-accordionitem expanded='true'>
+                        <ng-template #header>
+                            <div>Protein</div>
+                        </ng-template>
+                        <ng-template #content>
+                            <form #myForm="ngForm">
+                                <div class="card-body">
+                                    <button *ngFor="let c of recipe.protein" type="button" class="btn btn-xs btn-rounded btn-outline-secondary" style="margin:2px ">
                                             {{c?.ingredient?.nameEn}} <span class="badge badge-dark">{{c?.grams}}</span>
                                         </button>
-                                        <div class="input-group my-group">
-                                            <!-- <span [(ngModel)]="tmpVal.name = c.nameEn" ></span> -->
-                                            <input type="Number" class="form-control" name="grams" [(ngModel)]="prot.grams" placeholder="grams">
-                                            <select id="protein" class="selectpicker form-control" name="protein" [(ngModel)]="prot.ingredient" >
+                                    <div class="input-group my-group">
+                                        <!-- <span [(ngModel)]="tmpVal.name = c.nameEn" ></span> -->
+                                        <input type="Number" class="form-control" name="grams" [(ngModel)]="prot.grams" placeholder="grams">
+                                        <select id="protein" class="selectpicker form-control" name="protein" [(ngModel)]="prot.ingredient">
                                                         <option *ngFor="let p of protein" [ngValue]="p">{{p?.nameEn}}</option>
-                                            </select> 
-                                            <span class="input-group-btn"><button class="btn add-grams" type="submit" (click)="addprotein(myForm)">Add</button></span>
-                                
-                                        </div>
-                                    </div>
-                                </form>   
-                            </ng-template>
-                            </e-accordionitem>
-                        </e-accordionitems>
-                    </ejs-accordion>
-                    </div>    
-                <!-- Protein End -->
+                                            </select>
+                                        <span class="input-group-btn"><button class="btn add-grams" type="submit" (click)="addprotein(myForm)">Add</button></span>
 
-                    <!-- Protein -->
-                    <div class="m-t-10">
-                        <ejs-accordion >
-                            <e-accordionitems>
-                                <e-accordionitem expanded='true'>
-                                <ng-template  #header>
-                                    <div>Fat</div>
-                                </ng-template>
-                                <ng-template #content>
-                                    <form #myForm="ngForm">
-                                        <div class="card-body">
-                                            <button *ngFor="let c of recipe.fats" type="button" class="btn btn-xs btn-rounded btn-outline-secondary" style="margin:2px ">
+                                    </div>
+                                </div>
+                            </form>
+                        </ng-template>
+                    </e-accordionitem>
+                </e-accordionitems>
+            </ejs-accordion>
+        </div>
+        <!-- Protein End -->
+
+        <!-- Protein -->
+        <div class="m-t-10">
+            <ejs-accordion>
+                <e-accordionitems>
+                    <e-accordionitem expanded='true'>
+                        <ng-template #header>
+                            <div>Fat</div>
+                        </ng-template>
+                        <ng-template #content>
+                            <form #myForm="ngForm">
+                                <div class="card-body">
+                                    <button *ngFor="let c of recipe.fats" type="button" class="btn btn-xs btn-rounded btn-outline-secondary" style="margin:2px ">
                                                 {{c?.ingredient?.nameEn}} <span class="badge badge-dark">{{c?.grams}}</span>
                                             </button>
-                                            <div class="input-group my-group">
-                                                <!-- <span [(ngModel)]="tmpVal.name = c.nameEn" ></span> -->
-                                                <input type="Number" class="form-control" name="grams" [(ngModel)]="fat.grams" placeholder="grams">
-                                                <select id="fat" class="selectpicker form-control" name="fat" [(ngModel)]="fat.ingredient" >
+                                    <div class="input-group my-group">
+                                        <!-- <span [(ngModel)]="tmpVal.name = c.nameEn" ></span> -->
+                                        <input type="Number" class="form-control" name="grams" [(ngModel)]="fat.grams" placeholder="grams">
+                                        <select id="fat" class="selectpicker form-control" name="fat" [(ngModel)]="fat.ingredient">
                                                             <option *ngFor="let f of fats" [ngValue]="f">{{f?.nameEn}}</option>
-                                                </select> 
-                                                <span class="input-group-btn"><button class="btn add-grams" type="submit" (click)="addfat(myForm)">Add</button></span>
-                                    
-                                            </div>
-                                        </div>
-                                    </form>   
-                                </ng-template>
-                                </e-accordionitem>
-                            </e-accordionitems>
-                        </ejs-accordion>
-                        </div>    
-                    <!-- Protein End -->
-  
-              <!-- Feature Image -->
-  
-              <!-- <div class="m-t-10">
+                                                </select>
+                                        <span class="input-group-btn"><button class="btn add-grams" type="submit" (click)="addfat(myForm)">Add</button></span>
+
+                                    </div>
+                                </div>
+                            </form>
+                        </ng-template>
+                    </e-accordionitem>
+                </e-accordionitems>
+            </ejs-accordion>
+        </div>
+        <!-- Protein End -->
+
+        <!-- Feature Image -->
+
+        <!-- <div class="m-t-10">
                 <ejs-accordion >
                     <e-accordionitems>
                       <e-accordionitem expanded='true'>
@@ -412,10 +436,5 @@
                     </e-accordionitems>
                 </ejs-accordion>
               </div> -->
-      </div>
-  </div>
-  
-  
-  
-  
-  
+    </div>
+</div>
