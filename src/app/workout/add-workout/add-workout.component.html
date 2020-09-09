@@ -1,0 +1,227 @@
+<div class="row">
+    <div class="col-md-9">
+        <div class="row">
+            <div class="col-sm-6">
+                <div class="form-group">
+                    <label>Add New WorkOut</label>
+                    <input type="text" class="form-control radius margin" [(ngModel)]="workout.nameEn" id="nameEn" aria-describedby="nameEn" placeholder="Name Of workout(EN)">
+                </div>
+            </div>
+            <div class="col-sm-6">
+                <div class="form-group">
+                    <label class="invisible d-sm-block d-none">Add New WorkOut</label>
+                    <input type="text" class="form-control radius" [(ngModel)]="workout.nameNl" id="nameNl" aria-describedby="nameNl" placeholder="Name Of workout(NL)">
+                </div>
+            </div>
+            <div class="col-sm-12">
+                <div class="form-group">
+                    <input type="Number" class="form-control radius" [(ngModel)]="workout.time" id="time" aria-describedby="time" placeholder="Time required (in min)">
+                </div>
+            </div>
+
+            <div class="col-sm-6">
+                <div class="form-group">
+                    <input type="text" class="form-control radius" [(ngModel)]="workout.videoUrl" id="videoUrl" aria-describedby="videoUrl" placeholder="Add Video Url">
+                </div>
+            </div>
+            <div class="col-sm-6">
+                <div class="form-group">
+                    <input type="text" class="form-control radius" [(ngModel)]="workout.workoutUrl" id="workoutUrl" aria-describedby="workoutUrl" placeholder="Add workout Url">
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group text-center">
+            <label>OR</label>
+        </div>
+
+        <div class="card radius">
+            <div class="card-body radius">
+                <div class="margin">
+                    <quill-editor [styles]="{height: '300px'}" [(ngModel)]="workout.descriptionEn" placeholder="Description(EN)"></quill-editor>
+                </div>
+                <div>
+                    <quill-editor [styles]="{height: '300px'}" [(ngModel)]="workout.descriptionNl" placeholder="Description(Nl)"></quill-editor>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+    <div class="col-md-3">
+        <div class="form-group m-t-30 justify-content-end">
+            <button type="button" class="btn cus-btns  w-100 radius" (click)="Addworkout()">Publish</button>
+        </div>
+        <!-- Categories -->
+        <div class="m-t-10">
+            <ejs-accordion>
+                <e-accordionitems>
+                    <e-accordionitem expanded='true'>
+                        <ng-template #header>
+                            <div>Categories</div>
+                        </ng-template>
+                        <ng-template #content>
+                            <div class="todo-widget scrollable" style="height:200px;" [perfectScrollbar]="config">
+                                <ul class="list-task todo-list list-group m-b-0" data-role="tasklist">
+                                    <li class="list-group-item todo-item" *ngFor="let m of categories" data-role="task">
+                                        <div class="form-check form-check-inline">
+                                            <div class="custom-control custom-checkbox">
+                                                <input (click)="addCategory(m)" name="block" class="custom-control-input" id="'b-'{{m}}" type="checkbox" />
+                                                <label class="custom-control-label" for="'b-'{{m}}">{{m}}</label>
+                                            </div>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </ng-template>
+                    </e-accordionitem>
+                </e-accordionitems>
+            </ejs-accordion>
+        </div>
+
+        <!-- Categories End -->
+
+        <!-- Categories -->
+        <div class="m-t-10">
+            <ejs-accordion>
+                <e-accordionitems>
+                    <e-accordionitem expanded='true'>
+                        <ng-template #header>
+                            <div>Specification</div>
+                        </ng-template>
+                        <ng-template #content>
+                            <div class="todo-widget scrollable" style="height:200px;" [perfectScrollbar]="config">
+                                <ul class="list-task todo-list list-group m-b-0" data-role="tasklist">
+                                    <li class="list-group-item todo-item" *ngFor="let m of specification" data-role="task">
+                                        <div class="custom-control custom-radio">
+                                            <input type="radio" class="custom-control-input" id="'c-'{{m}}" name="specification" value="{{m}}" [(ngModel)]="workout.specification" mdbInput>
+                                            <label class="custom-control-label" for="'c-'{{m}}">{{m}}</label>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </ng-template>
+                    </e-accordionitem>
+                </e-accordionitems>
+            </ejs-accordion>
+        </div>
+
+        <!-- Categories End -->
+
+
+        <!-- Categories -->
+        <div class="m-t-10">
+            <ejs-accordion>
+                <e-accordionitems>
+                    <e-accordionitem expanded='true'>
+                        <ng-template #header>
+                            <div>Difficulity Level</div>
+                        </ng-template>
+                        <ng-template #content>
+                            <div class="todo-widget scrollable" style="height:200px;" [perfectScrollbar]="config">
+                                <ul class="list-task todo-list list-group m-b-0" data-role="tasklist">
+                                    <li class="list-group-item todo-item" *ngFor="let m of diffculity" data-role="task">
+                                        <div class="custom-control custom-radio">
+                                            <input type="radio" class="custom-control-input" id="'d-'{{m}}" name="difficulity" value="{{m}}" [(ngModel)]="workout.difficulityLevel" mdbInput>
+                                            <label class="custom-control-label" for="'d-'{{m}}">{{m}}</label>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </ng-template>
+                    </e-accordionitem>
+                </e-accordionitems>
+            </ejs-accordion>
+        </div>
+
+        <!-- Categories End -->
+
+        <!-- Categories -->
+        <div class="m-t-10">
+            <ejs-accordion>
+                <e-accordionitems>
+                    <e-accordionitem expanded='true'>
+                        <ng-template #header>
+                            <div>Sweat Level</div>
+                        </ng-template>
+                        <ng-template #content>
+                            <div class="todo-widget scrollable" style="height:200px;" [perfectScrollbar]="config">
+                                <ul class="list-task todo-list list-group m-b-0" data-role="tasklist">
+                                    <li class="list-group-item todo-item" *ngFor="let m of sweat" data-role="task">
+                                        <div class="custom-control custom-radio">
+                                            <input type="radio" class="custom-control-input" id="'s-'{{m}}" name="sweatFactor" value="{{m}}" [(ngModel)]="workout.sweatFactor" mdbInput>
+                                            <label class="custom-control-label" for="'s-'{{m}}">{{m}}</label>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </ng-template>
+                    </e-accordionitem>
+                </e-accordionitems>
+            </ejs-accordion>
+        </div>
+
+        <!-- Categories End -->
+
+        <!-- Categories -->
+        <div class="m-t-10">
+            <ejs-accordion>
+                <e-accordionitems>
+                    <e-accordionitem expanded='true'>
+                        <ng-template #header>
+                            <div>Muscle Group</div>
+                        </ng-template>
+                        <ng-template #content>
+                            <div class="todo-widget scrollable" style="height:200px;" [perfectScrollbar]="config">
+                                <ul class="list-task todo-list list-group m-b-0" data-role="tasklist">
+                                    <li class="list-group-item todo-item" *ngFor="let m of muscle" data-role="task">
+                                        <div class="custom-control custom-radio">
+                                            <input type="radio" class="custom-control-input" id="'m-'{{m}}" name="muscleGroup" value="{{m}}" [(ngModel)]="workout.muscleGroup" mdbInput>
+                                            <label class="custom-control-label" for="'m-'{{m}}">{{m}}</label>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </ng-template>
+                    </e-accordionitem>
+                </e-accordionitems>
+            </ejs-accordion>
+        </div>
+
+        <!-- Categories End -->
+
+        <!-- Feature Image -->
+
+        <div class="m-t-10">
+            <ejs-accordion>
+                <e-accordionitems>
+                    <e-accordionitem expanded='true'>
+                        <ng-template #header>
+                            <div>Feature Image</div>
+                        </ng-template>
+                        <ng-template #content>
+                            <div class="upload-btn-wrapper pointer">
+                                <button style="padding: 0; border: 0; background: transparent;" class="btn1">
+                                <div
+                                    style="flex-direction: column; border: 2px dashed #999; background-color: transparent; width: 200px; height: 100px; display: flex; justify-content: center; align-items: center;">
+                                    <img *ngIf="imageUrl"
+                                        style="opacity: 0.7; z-index: 1; position: absolute; top: 0; bottom: 0; left: 0; right: 0"
+                                        [src]="imageUrl" width="300" height="200" />
+                                        
+                                        <i *ngIf="!imageUrl" style="z-index: 2; color: #444;"
+                                            class="fa fa-upload pointer"></i>
+                                            <span *ngIf="!imageUrl" style="z-index: 2; color: #444; font-weight: 20px;" class="text-muted">Upload Feature Image</span>
+                                      </div>
+                            </button>
+                                <input type="file" name="banner" #fileInput (change)="onChange(fileInput.files[0])" class="custom-file-input" id="banner">
+                            </div>
+                        </ng-template>
+                    </e-accordionitem>
+                </e-accordionitems>
+            </ejs-accordion>
+        </div>
+
+
+    </div>
+</div>

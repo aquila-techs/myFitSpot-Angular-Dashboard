@@ -77,12 +77,29 @@ export const ROUTES: RouteInfo[] = [
         ]
     },
     {
-        path: '/workout',
+        path: '',
         title: 'WorkOut',
         icon: 'mdi mdi-dumbbell',
-        class: '', //has-arrow 
+        class: 'has-arrow', //has-arrow 
         extralink: false,
-        submenu:[]
+        submenu: [
+            {
+                path: '/workout/all',
+                title: 'All Workouts',
+                icon: 'mdi mdi-adjust',
+                class: '',
+                extralink: false,
+                submenu: []
+            },
+            {
+                path: '/workout/addworkout',
+                title: 'Add Workout',
+                icon: 'mdi mdi-adjust',
+                class: '',
+                extralink: false,
+                submenu: []
+            }
+        ]
     },
     {
         path: '/profile',

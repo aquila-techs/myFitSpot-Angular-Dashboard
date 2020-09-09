@@ -35,6 +35,10 @@ const routes: Routes = [
         loadChildren: () => import('./recipe/recipe.module').then(m => m.RecipeModule)
       },
       {
+        path: 'workout',
+        loadChildren: () => import('./workout/workout.module').then(m => m.WorkoutModule)
+      },
+      {
         path: 'post',
         loadChildren: () => import('./blog/blog.module').then(m => m.BlogModule)
       },
