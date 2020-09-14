@@ -55,7 +55,7 @@ export class AddWorkoutComponent implements OnInit {
     this.workoutS.createWorkout(this.workout, this.file).subscribe(res => {
       if (res.status == true) {
         this.toastr.success("WorkOut Published!", 'Success!', { timeOut: 3000, closeButton: true, progressBar: true, progressAnimation: 'decreasing' });
-        // setTimeout(()=>this.router.navigateByUrl('/recipes/all'),1000)
+        setTimeout(()=>this.router.navigateByUrl('/workout/all'),1000)
       } else {
         this.toastr.error(res.message, 'Oops!', { timeOut: 3000, closeButton: true, progressBar: true, progressAnimation: 'decreasing' });
       }
@@ -70,5 +70,6 @@ export class AddWorkoutComponent implements OnInit {
         this.workout.categories.push(c);
       }
   }
+
 
 }

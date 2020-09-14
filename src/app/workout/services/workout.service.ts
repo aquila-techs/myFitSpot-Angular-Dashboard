@@ -9,7 +9,7 @@ export class WorkoutService {
 
   constructor(private http: HttpClient) { }
 
-  
+
   createWorkout(body, file: File): Observable<any> {
 
     let formData = new FormData();
@@ -28,11 +28,15 @@ export class WorkoutService {
     formData.append("sweatFactor", body.sweatFactor);
     formData.append("categories", JSON.stringify(body['categories']));
     formData.append("equipment", JSON.stringify(body['equipment']));
-    return this.http.post("/workout/create",formData);
+    return this.http.post("/workout/create", formData);
   }
 
   getAllUserWorkouts(body): Observable<any> {
-    return this.http.post("/get/user/workouts",body);
+    return this.http.post("/workout/get/user", body);
+  }
+
+  deleteWorkout(param): Observable<any> {
+    return this.http.delete("/workout/" + param);
   }
 
 }
