@@ -38,6 +38,7 @@ export class RecipeService {
     formData.append("recipeNl", body.recipeNl);
     formData.append("recipeUrl", body.recipeUrl);
     formData.append("videoUrl", body.videoUrl);
+    formData.append("pricing", body.pricing);
     formData.append("specification", JSON.stringify(body['specification']));
     formData.append("mealType", JSON.stringify(body['mealType']));
     formData.append("recipeType", JSON.stringify(body['recipeType']));

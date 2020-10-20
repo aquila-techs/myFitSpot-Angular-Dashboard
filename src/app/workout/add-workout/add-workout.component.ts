@@ -16,7 +16,7 @@ export class AddWorkoutComponent implements OnInit {
   workout = {
     nameEn: "", nameNl: "", workoutUrl: "", time: "",videoUrl:"", type: "", specification: '',
     difficulityLevel: "", sweatFactor: "", categories: [], equipment: [], descriptionEn: "",
-    descriptionNl: "", muscleGroup: ""
+    descriptionNl: "", muscleGroup: "",pricing:""
   }
 
   diffculity = ["Beginners", "First Steps", "Intermediate", "Advanced"];
@@ -38,7 +38,6 @@ export class AddWorkoutComponent implements OnInit {
 
 
   onChange(file: File) {
-    // console.log(file)
     if (file) {
       this.fileName = file.name;
       this.file = file;

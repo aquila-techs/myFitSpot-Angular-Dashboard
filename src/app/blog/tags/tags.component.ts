@@ -31,7 +31,6 @@ export class TagsComponent implements OnInit {
   }
 
   addTag(form:NgForm) {
-    console.log(this.tag)    
     this.blogSer.creatTag(this.tag).subscribe(res => {
       if (res.status == true) {
         this.ngOnInit();

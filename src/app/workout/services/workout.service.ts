@@ -26,6 +26,7 @@ export class WorkoutService {
     formData.append("muscleGroup", body.muscleGroup);
     formData.append("specification", body.specification);
     formData.append("sweatFactor", body.sweatFactor);
+    formData.append("pricing", body.pricing);
     formData.append("categories", JSON.stringify(body['categories']));
     formData.append("equipment", JSON.stringify(body['equipment']));
     return this.http.post("/workout/create", formData);

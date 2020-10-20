@@ -13,12 +13,20 @@
                     <input type="text" class="form-control radius" [(ngModel)]="recipe.nameNl" id="nameNl" aria-describedby="nameNl" placeholder="Name Of Recipe(NL)">
                 </div>
             </div>
-            <div class="col-sm-12">
+            <div class="col-sm-6">
                 <div class="form-group">
                     <input type="Number" class="form-control radius" [(ngModel)]="recipe.time" id="time" aria-describedby="time" placeholder="Time required to prepare (in min)">
                 </div>
             </div>
-
+            <div class="col-sm-6">
+                <div class="form-group">
+                    <select id="carbs" class="selectpicker form-control" name="pricing" [(ngModel)]="recipe.pricing">
+                        <option value="" disabled selected>Select pricing option</option>
+                        <option value="paid">Paid</option>
+                        <option value="free">Free</option>
+                    </select>
+                </div>
+            </div>
             <div class="col-sm-6">
                 <div class="form-group">
                     <input type="text" class="form-control radius" [(ngModel)]="recipe.videoUrl" id="videoUrl" aria-describedby="videoUrl" placeholder="Add Video Url">

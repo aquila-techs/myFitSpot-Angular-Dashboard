@@ -16,7 +16,7 @@ import { NgForm } from '@angular/forms';
 export class AddRecipeComponent implements OnInit {
 
   recipe = {
-    nameEn: "", nameNl: "", recipeEn: "", recipeNl: "", time: "",videoUrl:"", recipeUrl: "", mealType: [],specification:[],
+    nameEn: "", nameNl: "", recipeEn: "", recipeNl: "", time: "",videoUrl:"", recipeUrl: "", pricing:"",mealType: [],specification:[],
     carbs: [], protein: [], fats: [], fruits: [], vegetables: [], herbs: [],recipeType:[]
   }
 
@@ -85,7 +85,7 @@ export class AddRecipeComponent implements OnInit {
   }
 
   AddRecipe() {
-    // console.log(this.recipe,this.file)
+    console.log(this.recipe,this.file)
     this.recipeS.createRecipe(this.recipe,this.file).subscribe(res => {
       // console.log(res)
       if (res.status == true) {
