@@ -15,10 +15,9 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { WorkoutRoutingModule } from './workout-routing.module';
 import { AddWorkoutComponent } from './add-workout/add-workout.component';
 import { AllWorkoutComponent } from './all-workout/all-workout.component';
-
-
+import { SafePipe } from '../pipe/safe.pipe';
 @NgModule({
-  declarations: [AddWorkoutComponent, AllWorkoutComponent],
+  declarations: [AddWorkoutComponent, AllWorkoutComponent, SafePipe],
   imports: [
     CommonModule,
     WorkoutRoutingModule,

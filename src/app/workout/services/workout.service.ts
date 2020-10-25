@@ -29,11 +29,19 @@ export class WorkoutService {
     formData.append("pricing", body.pricing);
     formData.append("categories", JSON.stringify(body['categories']));
     formData.append("equipment", JSON.stringify(body['equipment']));
+    formData.append("excercises", JSON.stringify(body['excercises']));
     return this.http.post("/workout/create", formData);
   }
 
   getAllUserWorkouts(body): Observable<any> {
     return this.http.post("/workout/get/user", body);
+  }
+  getAllParentCategories(): Observable<any> {
+    return this.http.get("/workout/categories/get/all/parent");
+  }
+
+  getAllParentChildCategories(id:any): Observable<any> {
+    return this.http.get("/workout/categories/get/all/parent/children/"+id);
   }
 
   deleteWorkout(param): Observable<any> {
