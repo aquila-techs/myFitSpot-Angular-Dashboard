@@ -22,7 +22,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { LocationStrategy,HashLocationStrategy } from '@angular/common';
-
+import { NgHttpLoaderModule } from 'ng-http-loader';
 
 //Components
 import { AppComponent } from './app.component';
@@ -77,6 +77,7 @@ const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
     ReactiveFormsModule,
     DataTablesModule,
     HttpClientModule,
+    NgHttpLoaderModule.forRoot(),
     NgbModule,
     Ng2SearchPipeModule,
     RouterModule,
