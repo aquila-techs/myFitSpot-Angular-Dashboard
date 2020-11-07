@@ -60,7 +60,7 @@ export class SignupComponent implements OnInit{
   }
 
   signup() {
-    if (this.captcha) {
+    // if (this.captcha) {
       if (this.user.email && this.user.password) {
         if (this.user.referBy == "") {
           delete this.user.referBy;
@@ -77,9 +77,9 @@ export class SignupComponent implements OnInit{
   
         })
       }
-    } else {
-      this.toastr.error("Please Verify you are not robot by checking the recaptcha!", "Oops!", { timeOut: 3000, closeButton: true, progressBar: true, progressAnimation: 'decreasing' });
-    }
+    // } else {
+    //   this.toastr.error("Please Verify you are not robot by checking the recaptcha!", "Oops!", { timeOut: 3000, closeButton: true, progressBar: true, progressAnimation: 'decreasing' });
+    // }
   
   }
 

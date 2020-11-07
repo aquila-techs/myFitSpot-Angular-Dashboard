@@ -21,32 +21,32 @@
                             </div>
                             <input [(ngModel)]="body.password" name="password" type="password" class="form-control form-control-lg" placeholder="Password" aria-label="Password" aria-describedby="basic-addon1">
                         </div>
-                        <div class="form-group row">
+                        <!-- <div class="form-group row">
                             <div class="col-md-12">
                                 <re-captcha (resolved)="resolved($event)" 
                                             formControlName="recaptchaReactive" 
                                             siteKey="{{recaptchaKey}}">  
                                 </re-captcha>
                             </div>
-                        </div>
+                        </div> -->
 
                         <div class="form-group row">
                             <div class="col-md-12">
                                 <!-- <div class="custom-control custom-checkbox"> -->
-                                    <!-- <input type="checkbox" class="custom-control-input" id="customCheck1">
+                                <!-- <input type="checkbox" class="custom-control-input" id="customCheck1">
                                     <label class="custom-control-label" for="customCheck1">Remember me</label> -->
-                                    <a [routerLink]="['/forgotpassword']"  id="to-recover" class="text-dark"><i class="fa fa-lock m-r-5"></i> Forget Password?</a>
+                                <a [routerLink]="['/forgotpassword']" id="to-recover" class="text-dark"><i class="fa fa-lock m-r-5"></i> Forget Password?</a>
                                 <!-- </div> -->
                             </div>
                         </div>
                         <div class="form-group text-center">
                             <div class="col-xs-12 p-b-20">
-                                <button  (click)="login()" class="btn btn-block btn-lg btn-info" type="submit">Log In</button>
+                                <button (click)="login()" class="btn btn-block btn-lg btn-info" type="submit">Log In</button>
                             </div>
                         </div>
                         <div class="form-group m-b-0 m-t-10 ">
                             <div class="col-sm-12 text-center ">
-                                Don't have an account? <a  [routerLink]="['/signup']"  class="text-info m-l-5 "><b>SignUp</b></a>
+                                Don't have an account? <a [routerLink]="['/signup']" class="text-info m-l-5 "><b>SignUp</b></a>
                             </div>
                         </div>
                         <!-- <div class="row">
@@ -66,6 +66,6 @@
                 </div>
             </div>
         </div>
-        
+
     </div>
 </div>

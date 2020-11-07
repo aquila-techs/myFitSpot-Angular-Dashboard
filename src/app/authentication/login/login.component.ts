@@ -21,10 +21,10 @@ export class LoginComponent implements OnInit {
 
 
   login() {
-    if (this.captcha) {
+    // if (this.captcha) {
       if (this.body.email && this.body.password) {
         this.authSer.login(this.body).subscribe(res => {
-          console.log(res);
+          // console.log(res);
           if (res.success == true) {
             localStorage.setItem('fat', res.token);
             this.router.navigate(['/']);          
@@ -34,9 +34,9 @@ export class LoginComponent implements OnInit {
   
         })
       }  
-    } else {
-      this.toastr.error("Please Verify you are not robot by checking the recaptcha!", "Oops!", { timeOut: 3000, closeButton: true, progressBar: true, progressAnimation: 'decreasing' })
-    }
+    // } else {
+    //   this.toastr.error("Please Verify you are not robot by checking the recaptcha!", "Oops!", { timeOut: 3000, closeButton: true, progressBar: true, progressAnimation: 'decreasing' })
+    // }
     
   }
 
