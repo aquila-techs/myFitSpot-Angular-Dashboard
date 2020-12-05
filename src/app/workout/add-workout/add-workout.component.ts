@@ -43,17 +43,17 @@ export class AddWorkoutComponent implements OnInit {
   }
 
 
-  onChange(file: File) {
-    if (file) {
-      this.fileName = file.name;
-      this.file = file;
-      const reader = new FileReader();
-      reader.readAsDataURL(file);
-      reader.onload = event => {
-        this.imageUrl = reader.result;
-      };
+    onChange(file: File) {
+      if (file) {
+        this.fileName = file.name;
+        this.file = file;
+        const reader = new FileReader();
+        reader.readAsDataURL(file);
+        reader.onload = event => {
+          this.imageUrl = reader.result;
+        };
+      }
     }
-  }
 
   Addworkout() {
     this.workoutS.createWorkout(this.workout, this.file).subscribe(res => {
