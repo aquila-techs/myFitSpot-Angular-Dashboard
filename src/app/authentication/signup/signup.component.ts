@@ -29,6 +29,7 @@ export class SignupComponent implements OnInit{
     this.authSer.getAllPartners().subscribe(async res=>{
       // console.log(res)
       this.partnersData = res.users;
+      names.push('None');
      await res.users.forEach(element => {
        names.push(element.name) 
      });
@@ -51,6 +52,7 @@ export class SignupComponent implements OnInit{
   onItemSelect(item: any) {
     // console.log(item);
   //  console.log  (this.partnersData.find(e=>{ return e.name == item}))
+    // console.log('Item here', item);
     const partner = this.partnersData.find(e => { return e.name == item })
     this.user.referBy = partner._id;
   }
@@ -67,7 +69,7 @@ export class SignupComponent implements OnInit{
         }
         // console.log(this.user)
         this.authSer.signup(this.user).subscribe(res => {
-          console.log(res);
+          // console.log(res);
           if (res.success == true) {
             this.router.navigate(['/activate/email']);          
           } else {
