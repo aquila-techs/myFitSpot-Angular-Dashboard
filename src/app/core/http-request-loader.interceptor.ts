@@ -57,13 +57,4 @@ export class HttpRequestLoaderInterceptor implements HttpInterceptor {
                 // this.onEnd();
             }));
     }
-    // private onEnd(): void {
-    //     this.hideLoader();
-    // }
-    // private showLoader(): void {
-    //     this.loaderService.show();
-    // }
-    // private hideLoader(): void {
-    //     this.loaderService.hide();
-    // }
 }

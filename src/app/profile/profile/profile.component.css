@@ -18,3 +18,22 @@ label {
     border-bottom: 1px solid rgb(177, 174, 174) !important;
     border-top: none !important;
 }
+
+.upload-btn-wrapper {
+  position: relative;
+  /* overflow: hidden; */
+  display: inline-block;
+  cursor: pointer;
+}
+
+.upload-btn-wrapper input[type=file] {
+  font-size: 100px;
+  position: absolute;
+  left: 0;
+  top: 0;
+  opacity: 0;
+}
+
+.pointer {
+  cursor: pointer;
+}

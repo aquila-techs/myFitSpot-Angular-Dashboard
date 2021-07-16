@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { AuthenticationService  } from "../services/authentication.service";
 import { ToastrService } from 'ngx-toastr';
 import { environment } from 'src/environments/environment';
+import { v4 as uuidv4 } from 'uuid';
 
 @Component({
   selector: 'app-signup',
@@ -18,7 +19,7 @@ export class SignupComponent implements OnInit{
   recaptchaKey = environment.recaptchaKey;
   captcha = false;
 
-  user = { name: "", email: "", password: "", referBy: "" } as any;
+  user = { name: "", email: "", password: "", referBy: "", referralCode: '' } as any;
 
 
   constructor(private authSer: AuthenticationService,private router:Router,private toastr:ToastrService) {}
@@ -31,7 +32,7 @@ export class SignupComponent implements OnInit{
       this.partnersData = res.users;
       names.push('None');
      await res.users.forEach(element => {
-       names.push(element.name) 
+       names.push(element.name)
      });
       this.partners = names;
       // console.log('partners',this.partners)
@@ -44,9 +45,9 @@ export class SignupComponent implements OnInit{
       allowSearchFilter: true,
       closeDropDownOnSelection: this.closeDropdownSelection
     };
-    
-    
-    
+
+
+
   }
 
   onItemSelect(item: any) {
@@ -67,22 +68,23 @@ export class SignupComponent implements OnInit{
         if (this.user.referBy == "") {
           delete this.user.referBy;
         }
-        // console.log(this.user)
+        this.user.referralCode = uuidv4();
+        console.log(this.user)
         this.authSer.signup(this.user).subscribe(res => {
           // console.log(res);
           if (res.success == true) {
-            this.router.navigate(['/activate/email']);          
+            this.router.navigate(['/activate/email']);
           } else {
             this.toastr.error(res.message, "Oops!", { timeOut: 3000, closeButton: true, progressBar: true, progressAnimation: 'decreasing' });
-  
+
           }
-  
+
         })
       }
     // } else {
     //   this.toastr.error("Please Verify you are not robot by checking the recaptcha!", "Oops!", { timeOut: 3000, closeButton: true, progressBar: true, progressAnimation: 'decreasing' });
     // }
-  
+
   }
 
   resolved(captchaResponse) {
@@ -93,7 +95,7 @@ export class SignupComponent implements OnInit{
     //   if (res.status == true) {
     //     this.captcha = true;
     //   } else {
-    //     this.toastr.error("Recaptcha Verification Failed!", "Oops!", { timeOut: 3000, closeButton: true, progressBar: true, progressAnimation: 'decreasing' });        
+    //     this.toastr.error("Recaptcha Verification Failed!", "Oops!", { timeOut: 3000, closeButton: true, progressBar: true, progressAnimation: 'decreasing' });
     //   }
     // })
   }

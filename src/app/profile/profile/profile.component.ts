@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { ProfileService } from '../services/profile.service';
+import { ToastrService } from 'ngx-toastr';
 import { environment } from 'src/environments/environment';
-import { BlogService } from '../../blog/services/blog.service'
+import { ProfileService } from '../services/profile.service';
+
 @Component({
   selector: 'app-profile',
   templateUrl: './profile.component.html',
@@ -9,26 +10,102 @@ import { BlogService } from '../../blog/services/blog.service'
 })
 export class ProfileComponent implements OnInit {
 
-  userDetail;
-  blogPosts;
-  page = 1;
-  totalPosts;
-  imageUrl = environment.imgUrl;
-  constructor(private profileS: ProfileService,private blogS:BlogService) { }
+  file;
+  imageUrl;
+  enImageUrl = environment.imgUrl;
+  referralCode;
+  userProfileData = {
+    email: '',
+    name: '',
+    gender: '',
+    phoneNo: '',
+    bio: '',
+    city: '',
+    state: '',
+    country: ''
+  }
+
+  constructor(private profileService: ProfileService, private toastr: ToastrService) { }
 
   ngOnInit(): void {
-    this.profileS.getUserDetails().subscribe(res => {
-      console.log(res);
-      this.userDetail = res;
-    })
-    this.blogS.getUserPosts({}).subscribe(res => {
-      console.log(res)
-      if (res.status == true) {
-        this.blogPosts = res.data;
-        
-        // console.log(this.blogPosts)
+    this.profileService.getUserProfile().subscribe(
+      (data: any) => {
+        console.log(data);
+        this.referralCode = data.referralCode;
+        this.userProfileData.email = data.email;
+        this.userProfileData.name = data.name;
+        this.userProfileData.gender = data.gender;
+        this.userProfileData.phoneNo = data.phoneNo;
+        this.userProfileData.bio = data.bio;
+        this.userProfileData.city = data.city;
+        this.userProfileData.state = data.state;
+        this.userProfileData.country = data.country;
+        console.log(this.userProfileData);
+
+        if(data.profilePic) {
+          this.imageUrl = `${this.enImageUrl}${data.profilePic}`;
+          console.log(this.imageUrl);
+        }
+      },
+      (error) => {
+        console.log(error);
       }
-    })
+    )
+  }
+
+  copyReferralCode() {
+    let selBox = document.createElement('textarea');
+    selBox.style.position = 'fixed';
+    selBox.style.left = '0';
+    selBox.style.top = '0';
+    selBox.style.opacity = '0';
+    selBox.value = this.referralCode;
+    document.body.appendChild(selBox);
+    selBox.focus();
+    selBox.select();
+    document.execCommand('copy');
+    document.body.removeChild(selBox);
+    this.toastr.success("Referral Code Copied!", 'Success!', { timeOut: 2000, closeButton: true, progressBar: true, progressAnimation: 'decreasing' });
+  }
+
+  createFormData(file: File) {
+    console.log(file);
+    if (file) {
+      this.file = file;
+      const reader = new FileReader();
+      reader.readAsDataURL(file);
+      reader.onload = event => {
+        this.imageUrl = reader.result;
+        //console.log(this.imageUrl);
+      };
+      const formData = new FormData();
+      formData.append("profilePic", this.file);
+      this.profileService.updateProfilePic(formData).subscribe(
+        (data) => {
+          //console.log(data);
+          this.profileService.sendImageChangeEvent();
+          this.profileService.onFirstComponentLoad();
+          this.toastr.success("Profile Picture Updated!", 'Success!', { timeOut: 2000, closeButton: true, progressBar: true, progressAnimation: 'decreasing' });
+          window.location.reload()
+        },
+        (error) => {
+          console.log(error);
+        }
+      )
+    }
+  }
+
+  updateProfile() {
+    console.log(this.userProfileData)
+    this.profileService.updateProfile(this.userProfileData).subscribe(
+      (data) => {
+        console.log(data);
+        this.toastr.success("Profile Updated!", 'Success!', { timeOut: 2000, closeButton: true, progressBar: true, progressAnimation: 'decreasing' });
+      },
+      (error) => {
+        console.log(error);
+      }
+    )
   }
 
 }
